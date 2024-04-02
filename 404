@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <link rel="stylesheet" href="css/homepage_css"> 
+</head>
+<body>
+    <div class="container-404">
+        <h1>404 Not Found</h1>
+        <p>The page you are looking for doesn't exist or another error occurred. Go back, or head over to the <a href="index.html">homepage</a> to choose a new direction.</p>
+    </div>
+</body>
+</html>
