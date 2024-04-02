@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dp_technical_02_css"> <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="css/dp_technical_02_css.css"> <!-- Link to your external CSS file -->
     <title>Week 2 - Technical Presentation Assignment</title>
 </head>
+
 <body>
     <div class="container">
+        <h1>Week 2 - Technical Presentation Assignment</h1>
+        <p>This week's technical assignment was to create a page that resembled a retro console, complete with a black background and bright green text.</p>
+    </div>
 </body>
