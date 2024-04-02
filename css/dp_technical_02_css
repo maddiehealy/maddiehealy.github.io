@@ -1,7 +1,7 @@
 body {
     background-color: black;
     font-family: 'Courier New', Courier, monospace;
-    color: #00FF00; /* bright green */
+    color: #00FF00;
     margin: 0;
     padding: 0;
 }
@@ -13,6 +13,5 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #00FF00; /* bright green */
+    color: #00FF00;
 }
-
