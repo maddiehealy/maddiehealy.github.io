@@ -5,144 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maddie Healy's Data Publication Website</title>
     <link rel="icon" type="image/png" href="images/pixel_heart.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        nav {
+        /* Your custom styles */
+        .navbar {
             background-color: maroon;
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        nav ul li {
-            position: relative; /* This is important for absolute positioning of dropdown */
-        }
-
-        nav ul li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
-        nav ul li a:hover, nav ul li a:focus {
-            background-color: #555;
             color: white;
         }
 
-        nav ul li ul {
-            display: none;
-            position: absolute;
+        .navbar-nav .nav-link {
+            color: white;
+            padding: 15px 30px; /* Add more padding */
+            margin-right: 15px; /* Add margin between buttons */
+            border-radius: 20px; /* Rounded border */
+            transition: background-color 0.3s, border-radius 0.3s; /* Smooth transition */
+        }
+
+        .navbar-nav .nav-link:last-child {
+            margin-right: 0; /* Remove margin from the last button */
+        }
+
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+            background-color: #6b0000; /* Darker maroon */
+            border-radius: 30px; /* Increased border radius on hover */
+        }
+
+        .dropdown-menu {
             background-color: maroon;
-            min-width: 160px; /* Set minimum width of dropdown */
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
+            text-align: center; /* Center the dropdown menu */
         }
 
-        nav ul li:hover ul {
-            display: block; /* Display dropdown on hover */
+        .dropdown-item {
+            color: white;
         }
 
-        nav ul li ul li {
-            display: block;
+        .dropdown-item:hover, .dropdown-item:focus {
+            background-color: #6b0000; /* Darker maroon */
+            border-radius: 30px; /* Increased border radius on hover */
         }
 
-        nav ul li ul li a {
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }        
-
-        body {
-            padding-top: 60px;
-            font-family: Arial, sans-serif;
-        }
-
-        .banner {
-            background-image: url('images/banner.jpg');
+        /* Banner for header text */
+        .header-banner {
             background-color: maroon;
             color: white;
             text-align: center;
-            padding: 50px 0;
+            padding: 50px; /* Ample padding */
+            border: 2px solid white; /* Border for the header text */
+            border-radius: 10px; /* Rounded corners */
+            margin-top: 20px; /* Space between navbar and header text */
+            max-width: 800px; /* Max width for the header box */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px; /* Additional space between header and "by Maddie Healy" */
         }
 
         header h1 {
-            color: white;
             font-size: 2.5em;
+            margin-bottom: 20px; /* Increase space between "Digital Publication" and "by Maddie Healy" */
         }
 
         header p {
             font-size: 1.5em;
             margin-top: -20px;
-            color: white;
-        }
-        .console {
-            background-color: black;
-            color: greenyellow;
-            font-family: 'Courier New', Courier, monospace;
-            padding: 20px;
-            margin: 20px auto;
-            width: 80%;
-            border: 2px solid greenyellow;
-            box-shadow: 0 0 10px greenyellow;
-        }
-
-        .console h2 {
-            color: #00FF00;
-        }
-
-        .console p {
-            color: #00FF00;
+            margin-bottom: 0; /* Reset margin */
         }
     </style>
 </head>
 
 <body> 
-    <nav>
-        <ul>
-            <li>
-                <a href="#">About</a>
-                <ul>
-                    <li><a href="about_me.html">About Me</a></li>
-                    <li><a href="about_class.html">About This Class</a></li>
-                </ul>
-            </li>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <ul class="navbar-nav mx-auto"> 
+                <li class="nav-item dropdown">
 
-            <li>
-                <a href="contact.html">Contact</a>
-            </li>
-            <li><a href="#">Technical Assignments</a>
-                <ul>
-                    <li><a href="technical_02.html">Technical Assignment 02</a></li>
-                    <li><a href="technical_03.html">Technical Assignment 03</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Digital Chalkboard</a>
-                <ul>
-                    <li><a href="digital-chalkboard.html">Digital Chalkboard</a></li>
-                </ul>
-            </li>
-        </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTechnical" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Technical Assignments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTechnical">
+                        <a class="dropdown-item" href="technical_02.html">Technical Assignment 02</a>
+                        <a class="dropdown-item" href="technical_03.html">Technical Assignment 03</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDigital" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Digital Chalkboard
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownDigital">
+                        <a class="dropdown-item" href="digital-chalkboard.html">Digital Chalkboard</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    <div class="banner">
+    <!-- Banner for header text -->
+    <div class="header-banner">
         <header>
-            <h1>Digital Publication for the Humanities</h1>
+            <h1>Data Publication for the Humanities</h1>
             <p>by Maddie Healy</p>
         </header>
     </div>   
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
