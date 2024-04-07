@@ -3,17 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 2 - Technical Presentation Assignment</title>
-    <link rel="stylesheet" href="css/dp_technical_02_css.css"> <!-- Correct path to your CSS file -->
+    <title>Technical Assignment 02 - Retro Console Look</title>
+    <style>
+        body {
+            background-color: black;
+            color: #33ff33; /* Bright green text */
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for that retro feel */
+            margin: 0;
+            padding: 20px;
+            height: 100vh; /* Full height of the viewport */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .console-container {
+            white-space: pre-wrap; /* Allows text formatting with whitespace */
+            overflow: auto; /* Allows scrolling within the container if content overflows */
+            height: 90%; /* Height of the console container */
+            padding: 20px;
+            border: 2px solid #33ff33; /* Bright green border */
+        }
+
+        @keyframes blink-cursor {
+            from { border-right-color: #33ff33; }
+            to { border-right-color: transparent; }
+        }
+
+        .console-container:focus {
+            animation: blink-cursor 1s step-end infinite;
+        }
+
+        .console-text {
+            margin: 0; /* Adjusts the margin for the text */
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Week 2 - Technical Presentation Assignment</h1>
-        <p>This week's technical assignment was to create a page that resembled a retro console, complete with a black background and bright green text.</p>
-        <div class="console">
-            <h2>Hello World!</h2>
-            <p>This is a (simulated) console, made to emulate the design of a retro console, complete with a black background and bright green text.</p>
-        </div>
+<body tabindex="0"> <!-- tabindex allows the body to be focused for the blinking cursor effect -->
+    <div class="console-container">
+        <p class="console-text">Retro Console Look</p>
+        <p class="console-text">This is a simulation of a retro console.</p>
+        <p class="console-text">> Enter command...</p>
     </div>
 </body>
 </html>
