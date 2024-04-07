@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="images/pixel_heart.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Your custom styles */
         .navbar {
             background-color: maroon;
             color: white;
@@ -15,24 +14,24 @@
 
         .navbar-nav .nav-link {
             color: white;
-            padding: 15px 30px; /* Add more padding */
-            margin-right: 15px; /* Add margin between buttons */
-            border-radius: 20px; /* Rounded border */
-            transition: background-color 0.3s, border-radius 0.3s; /* Smooth transition */
+            padding: 15px 30px;
+            margin-right: 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s, border-radius 0.3s;
         }
 
         .navbar-nav .nav-link:last-child {
-            margin-right: 0; /* Remove margin from the last button */
+            margin-right: 0;
         }
 
         .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
-            background-color: #6b0000; /* Darker maroon */
-            border-radius: 30px; /* Increased border radius on hover */
+            background-color: #6b0000;
+            border-radius: 30px;
         }
 
         .dropdown-menu {
             background-color: maroon;
-            text-align: center; /* Center the dropdown menu */
+            text-align: center;
         }
 
         .dropdown-item {
@@ -40,34 +39,42 @@
         }
 
         .dropdown-item:hover, .dropdown-item:focus {
-            background-color: #6b0000; /* Darker maroon */
-            border-radius: 30px; /* Increased border radius on hover */
+            background-color: #6b0000;
+            border-radius: 30px;
         }
 
-        /* Banner for header text */
         .header-banner {
             background-color: maroon;
             color: white;
             text-align: center;
-            padding: 50px; /* Ample padding */
-            border: 2px solid white; /* Border for the header text */
-            border-radius: 10px; /* Rounded corners */
-            margin-top: 20px; /* Space between navbar and header text */
-            max-width: 800px; /* Max width for the header box */
+            padding: 50px;
+            border: 2px solid white;
+            border-radius: 10px;
+            margin-top: 20px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 30px; /* Additional space between header and "by Maddie Healy" */
+            margin-bottom: 50px;
         }
 
         header h1 {
             font-size: 2.5em;
-            margin-bottom: 20px; /* Increase space between "Digital Publication" and "by Maddie Healy" */
+            margin-bottom: 20px;
         }
 
         header p {
             font-size: 1.5em;
             margin-top: -20px;
-            margin-bottom: 0; /* Reset margin */
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header-banner em {
+            font-size: 0.8em;
+        }
+
+        .header-banner .spacer {
+            margin-bottom: 50px;
         }
     </style>
 </head>
@@ -77,7 +84,6 @@
         <div class="container">
             <ul class="navbar-nav mx-auto"> 
                 <li class="nav-item dropdown">
-
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
                 </li>
@@ -101,17 +107,18 @@
                         Digital Chalkboard
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownDigital">
-                        <a class="dropdown-item" href="digital-chalkboard.html">Digital Chalkboard</a>
+                        <a class="dropdown-item" href="chalkboard_03.html">Digital Chalkboard 03</a>
                     </div>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Banner for header text -->
     <div class="header-banner">
         <header>
             <h1>Data Publication for the Humanities</h1>
+            <p>a website showcasing assignments completed for DIGS</p>
+            <p class="spacer"></p>
             <p>by Maddie Healy</p>
         </header>
     </div>   
