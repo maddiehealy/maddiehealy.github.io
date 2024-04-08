@@ -5,95 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maddie Healy's Data Publication Website</title>
     <link rel="icon" type="image/png" href="images/pixel_heart.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .navbar {
-            background-color: maroon;
-            color: white;
-        }
-
-        .navbar-nav .nav-link {
-            color: white;
-            padding: 15px 30px;
-            margin-right: 15px;
-            border-radius: 20px;
-            transition: background-color 0.3s, border-radius 0.3s;
-        }
-
-        .navbar-nav .nav-link:last-child {
-            margin-right: 0;
-        }
-
-        .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
-            background-color: #6b0000;
-            border-radius: 30px;
-        }
-
-        .dropdown-menu {
-            background-color: maroon;
-            text-align: center;
-        }
-
-        .dropdown-item {
-            color: white;
-        }
-
-        .dropdown-item:hover, .dropdown-item:focus {
-            background-color: #6b0000;
-            border-radius: 30px;
-        }
-
-        .header-banner {
-            background-color: maroon;
-            color: white;
-            text-align: center;
-            padding: 50px;
-            border: 2px solid white;
-            border-radius: 10px;
-            margin-top: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 50px;
-        }
-
-        header h1 {
-            font-size: 2.75em;
-            margin-bottom: 20px;
-        }
-
-        header p {
-            font-size: 1.95em;
-            margin-top: -20px;
-            margin-bottom: 30px;
-            color: white;
-        }
-
-        .header-banner em {
-            font-size: 0.8em;
-        }
-
-        .header-banner .spacer {
-            margin-bottom: 50px;
-        }
-    </style>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body> 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <ul class="navbar-nav mx-auto"> 
-                <li class="nav-item dropdown">
+            <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
-
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTechnical" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTechnical" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Technical Assignments
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownTechnical">
@@ -101,9 +30,8 @@
                         <a class="dropdown-item" href="technical_03.html">Technical Assignment 03</a>
                     </div>
                 </li>
-
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDigital" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDigital" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Digital Chalkboard
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownDigital">
@@ -123,8 +51,7 @@
         </header>
     </div>   
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
