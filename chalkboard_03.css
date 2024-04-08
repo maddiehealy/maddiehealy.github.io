@@ -1,40 +1,69 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
 
-/* Styling for anchor links */
-a {
-    text-decoration: none; /* Remove underline */
-    color: blue; /* Bright font color */
+.container {
+    padding: 2rem !important; /* Adds padding inside the container */
+    margin: 2rem auto; /* Increases margin around the container */
+    max-width: 96%; /* Adjust the max-width to control how much space the container takes */
 }
 
-a:hover {
-    color: red; /* Change color on hover */
+.table-cat-breeds {
+    font-family: 'Jost', sans-serif;
 }
 
-a:visited {
-    color: darkblue; /* Darker version of link color */
+.table-cat-breeds thead th {
+    background-color: #f8f9fa;
+    font-weight: 700;
 }
 
-/* Pseudo-element styling for lists */
-.list-a li::before {
-    content: lower-roman; /* Lower case roman numerals */
-    font-weight: bold; /* Bold font weight */
-    margin-right: 5px; /* Adjust spacing */
+.table-cat-breeds tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
 }
 
-.list-b li::before {
-    content: lower-alpha; /* Lower case letters a-e */
-    font-weight: bold; /* Bold font weight */
-    margin-right: 5px; /* Adjust spacing */
+.table-cat-breeds td, .table-cat-breeds th {
+    background-color: #e9ecef;
 }
 
-.list-c li::before {
-    content: "\0025A0"; /* Square symbol */
-    font-weight: bold; /* Bold font weight */
-    margin-right: 5px; /* Adjust spacing */
+.table-cat-breeds thead th:nth-of-type(odd) {
+    background-color: #f8f9fa;
 }
 
-.list-d li::before {
-    content: "$"; /* Dollar sign symbol */
-    font-weight: bold; /* Bold font weight */
-    margin-right: 5px; /* Adjust spacing */
+/* Styles for the anchor link */
+.custom-link {
+    text-decoration: none;
+    color: #007bff; /* Bright link color */
+}
+
+.custom-link:visited {
+    color: #0056b3; /* Darker color for visited links */
+}
+
+.custom-link:hover {
+    color: #0056b3; /* Change color on hover */
+}
+
+/* Styles for ordered list with class 'a' */
+.a {
+    list-style-type: lower-roman; /* Lower case roman numerals */
+}
+
+/* Styles for ordered list with class 'b' */
+.b {
+    list-style-type: lower-alpha; /* Lower case letters */
+}
+
+/* Styles for unordered list with class 'c' */
+.c {
+    list-style-type: square; /* Squares instead of bullets */
+}
+
+/* Styles for unordered list with class 'd', customizing with dollar signs */
+.d li:before {
+    content: '$\00a0'; /* Dollar sign followed by a non-breaking space */
+    margin-right: 5px; /* Space between the dollar sign and the list item text */
+}
+
+/* Style the first letter of every list item */
+li::first-letter {
+    font-size: 150%; /* Larger size */
+    font-weight: bold; /* Bolder weight */
 }
