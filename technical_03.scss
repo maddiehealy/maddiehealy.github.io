@@ -1,0 +1,59 @@
+// Defining color variables
+$uchicago-maroon: #800000;
+$uchicago-gray: #808080;
+$uchicago-light-gray: #B9B9B9;
+$uchicago-dark-gray: #373A36;
+$uchicago-blue: #0051A2;
+$uchicago-light-blue: #8AB8E8;
+$uchicago-cream: #F8F6F1;
+
+// Mixins for text colors for better legibility
+@mixin light-text-color {
+  color: white;
+}
+
+@mixin dark-text-color {
+  color: black;
+}
+
+// Base styles
+body {
+  background-color: $uchicago-cream;
+  color: $uchicago-maroon;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  background-color: $uchicago-maroon;
+  color: $uchicago-cream;
+}
+
+.footer {
+  background-color: $uchicago-dark-gray;
+  color: $uchicago-cream;
+}
+
+a {
+  color: $uchicago-blue;
+  &:hover {
+    color: $uchicago-light-blue;
+  }
+}
+
+// Styles for color boxes
+.color-box {
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  @include light-text-color;
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+}
+
+// Modifying text color for legibility on light backgrounds
+.color-box:nth-child(6),
+.color-box:nth-child(7) {
+  @include dark-text-color;
+}

@@ -14,11 +14,7 @@ body {
     height: 90%; /* Height of the console container */
     padding: 20px;
     border: 2px solid #33ff33; /* Bright green border */
-}
 
-@keyframes blink-cursor {
-    from { border-right-color: #33ff33; }
-    to { border-right-color: transparent; }
 }
 
 .console-container:focus {
@@ -27,4 +23,9 @@ body {
 
 .console-text {
     margin: 0; /* Adjusts the margin for the text */
+}
+
+@keyframes blink-cursor {
+    from { border-right-color: #33ff33; }
+    to { border-right-color: transparent; }
 }
