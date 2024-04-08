@@ -1,0 +1,40 @@
+/* styles.css */
+
+/* Styling for anchor links */
+a {
+    text-decoration: none; /* Remove underline */
+    color: blue; /* Bright font color */
+}
+
+a:hover {
+    color: red; /* Change color on hover */
+}
+
+a:visited {
+    color: darkblue; /* Darker version of link color */
+}
+
+/* Pseudo-element styling for lists */
+.list-a li::before {
+    content: lower-roman; /* Lower case roman numerals */
+    font-weight: bold; /* Bold font weight */
+    margin-right: 5px; /* Adjust spacing */
+}
+
+.list-b li::before {
+    content: lower-alpha; /* Lower case letters a-e */
+    font-weight: bold; /* Bold font weight */
+    margin-right: 5px; /* Adjust spacing */
+}
+
+.list-c li::before {
+    content: "\0025A0"; /* Square symbol */
+    font-weight: bold; /* Bold font weight */
+    margin-right: 5px; /* Adjust spacing */
+}
+
+.list-d li::before {
+    content: "$"; /* Dollar sign symbol */
+    font-weight: bold; /* Bold font weight */
+    margin-right: 5px; /* Adjust spacing */
+}
