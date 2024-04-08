@@ -1,0 +1,51 @@
+:root {
+    --uchicago-maroon: #800000;
+    --uchicago-gray: #808080;
+    --uchicago-light-gray: #B9B9B9;
+    --uchicago-dark-gray: #373A36;
+    --uchicago-blue: #0051A2;
+    --uchicago-light-blue: #8AB8E8;
+    --uchicago-cream: #F8F6F1;
+  }
+  
+  body {
+    background-color: var(--uchicago-cream);
+    color: var(--uchicago-maroon);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header {
+    background-color: var(--uchicago-maroon);
+    color: var(--uchicago-cream);
+  }
+  
+  .footer {
+    background-color: var(--uchicago-dark-gray);
+    color: var(--uchicago-cream);
+  }
+  
+  a {
+    color: var(--uchicago-blue);
+  }
+  
+  a:hover {
+    color: var(--uchicago-light-blue);
+  }
+  
+  .color-box {
+    margin: 10px;
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
+  }
+  
+  .color-box p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  /* Additional styles to make text legible on light backgrounds */
+  .color-box:nth-child(6) p, .color-box:nth-child(7) p {
+    color: black;
+  }
+  

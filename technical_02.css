@@ -1,30 +1,33 @@
-body {
-    background-color: black;
-    color: #33ff33; /* Bright green text */
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for that retro feel */
-    margin: 0;
-    padding: 20px;
-    height: 100vh; /* Full height of the viewport */
-    overflow: hidden; /* Prevent scrolling */
-}
-
-.console-container {
-    white-space: pre-wrap; /* Allows text formatting with whitespace */
-    overflow: auto; /* Allows scrolling within the container if content overflows */
-    height: 90%; /* Height of the console container */
-    padding: 20px;
-    border: 2px solid #33ff33; /* Bright green border */
-}
-
-@keyframes blink-cursor {
-    from { border-right-color: #33ff33; }
-    to { border-right-color: transparent; }
-}
-
-.console-container:focus {
-    animation: blink-cursor 1s step-end infinite;
-}
-
-.console-text {
-    margin: 0; /* Adjusts the margin for the text */
-}
+:root {
+    --uchicago-maroon: #800000;
+    --uchicago-gray: #808080;
+    --uchicago-light-gray: #B9B9B9;
+    --uchicago-dark-gray: #373A36;
+    --uchicago-blue: #0051A2;
+    --uchicago-light-blue: #8AB8E8;
+    --uchicago-cream: #F8F6F1;
+  }
+  
+  body {
+    background-color: var(--uchicago-cream);
+    color: var(--uchicago-maroon);
+  }
+  
+  .header {
+    background-color: var(--uchicago-maroon);
+    color: var(--uchicago-cream);
+  }
+  
+  .footer {
+    background-color: var(--uchicago-dark-gray);
+    color: var(--uchicago-cream);
+  }
+  
+  a {
+    color: var(--uchicago-blue);
+  }
+  
+  a:hover {
+    color: var(--uchicago-light-blue);
+  }
+  
