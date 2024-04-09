@@ -6,6 +6,17 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Adds a slight background color to the whole page for contrast */
+}
+
+/* Wraps content in a container for the maroon box */
+.container {
+    text-align: center;
+    background-color: maroon; /* Sets the background of the box to maroon */
+    padding: 40px; /* Adds padding inside the box */
+    border-radius: 10px; /* Optionally rounds the corners of the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionally adds a subtle shadow for depth */
+    color: white; /* Sets text color to white for contrast */
 }
 
 h1 {
