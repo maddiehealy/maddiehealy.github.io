@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Chalkboard Assignment 04</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="chalkboard_04.css" rel="stylesheet">
+</head>
+<body>
+<!-- Navbar Start -->
+<!-- This is the main navigation bar for the site -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTechnical" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Technical Assignments
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownTechnical">
+                    <a class="dropdown-item" href="technical_02.html">Technical Assignment 02</a>
+                    <a class="dropdown-item" href="technical_03.html">Technical Assignment 03</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDigital" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Digital Chalkboard
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownDigital">
+                    <a class="dropdown-item" href="chalkboard_03.html">Digital Chalkboard 03</a>
+                    <a class="dropdown-item" href="chalkboard_04.html">Digital Chalkboard 04</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Navbar End -->
+
+    <div class="row text-center my-4">
+        <div class="col-md-3 col-sm-6 my-column">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="col-md-3 col-sm-6 my-column">
+            <p>Donec nec justo eget felis facilisis fermentum.</p>
+        </div>
+        <div class="col-md-3 col-sm-6 my-column">
+            <p>Aliquam porttitor mauris sit amet orci.</p>
+        </div>
+        <div class="col-md-3 col-sm-6 my-column">
+            <p>Aenean dignissim pellentesque felis.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <button id="greetingButton" class="btn btn-primary mx-2">Greet Me</button>
+            <button id="changeButton" class="btn btn-primary mx-2">Submit</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('greetingButton').onclick = function() {
+        var now = new Date();
+        var hour = now.getHours();
+        if (hour < 12) {
+            alert('Good morning');
+        } else if (hour < 18) {
+            alert('Good day');
+        } else {
+            alert('Good evening');
+        }
+    };
+
+    document.getElementById('changeButton').onclick = function() {
+        var button = document.getElementById('changeButton');
+        console.log('Before:', button.textContent, button.className);
+        button.textContent = 'Done';
+        button.className = 'btn btn-success mx-2';
+        console.log('After:', button.textContent, button.className);
+    };
+</script>
+</body>
+</html>
