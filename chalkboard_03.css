@@ -1,33 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
 
-.container {
-    padding: 2rem !important; /* Adds padding inside the container */
-    margin: 2rem auto; /* Increases margin around the container */
-    max-width: 96%; /* Adjust the max-width to control how much space the container takes */
-}
-
-.table-cat-breeds {
+/* Apply Jost font to all text within body */
+body {
     font-family: 'Jost', sans-serif;
 }
 
-.table-cat-breeds thead th {
+/* General styles for .main-content area */
+.main-content {
+    padding: 2rem; /* Padding inside the container */
+    margin: 2rem auto; /* Margin around the container */
+    max-width: 96%; /* Control space the container takes */
+}
+
+/* Table specific styles */
+.main-content .table-cat-breeds thead th {
     background-color: #f8f9fa;
     font-weight: 700;
 }
 
-.table-cat-breeds tbody tr:nth-of-type(odd) {
+.main-content .table-cat-breeds tbody tr:nth-of-type(odd) {
     background-color: #f2f2f2;
 }
 
-.table-cat-breeds td, .table-cat-breeds th {
+.main-content .table-cat-breeds td,
+.main-content .table-cat-breeds th {
     background-color: #e9ecef;
 }
 
-.table-cat-breeds thead th:nth-of-type(odd) {
-    background-color: #f8f9fa;
-}
-
-/* Styles for the anchor link */
+/* Styles for anchor links */
 .custom-link {
     text-decoration: none;
     color: #007bff; /* Bright link color */
@@ -41,29 +41,34 @@
     color: #0056b3; /* Change color on hover */
 }
 
-/* Styles for ordered list with class 'a' */
+/* List styles */
 .a {
     list-style-type: lower-roman; /* Lower case roman numerals */
 }
 
-/* Styles for ordered list with class 'b' */
 .b {
     list-style-type: lower-alpha; /* Lower case letters */
 }
 
-/* Styles for unordered list with class 'c' */
 .c {
     list-style-type: square; /* Squares instead of bullets */
 }
 
-/* Styles for unordered list with class 'd', customizing with dollar signs */
-.d li:before {
+.d li::before {
     content: '$\00a0'; /* Dollar sign followed by a non-breaking space */
     margin-right: 5px; /* Space between the dollar sign and the list item text */
 }
 
-/* Style the first letter of every list item */
-li::first-letter {
+/* Styles for the first letter of every list item in main content */
+.main-content li::first-letter {
     font-size: 150%; /* Larger size */
     font-weight: bold; /* Bolder weight */
+    font-family: 'Jost', sans-serif; /* Ensure 'Jost' font is applied */
+}
+
+/* Reset styles for the navbar to use 'Arial' */
+.navbar,
+.navbar * {
+    font-family: 'Arial', sans-serif; /* Apply Arial font to navbar */
+    font-weight: normal;
 }

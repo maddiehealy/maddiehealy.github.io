@@ -6,41 +6,43 @@
     <title>Digital Chalkboard Assignment 04</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="chalkboard_04.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
-<!-- Navbar Start -->
-<!-- This is the main navigation bar for the site -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTechnical" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Technical Assignments
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownTechnical">
-                    <a class="dropdown-item" href="technical_02.html">Technical Assignment 02</a>
-                    <a class="dropdown-item" href="technical_03.html">Technical Assignment 03</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDigital" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Digital Chalkboard
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownDigital">
-                    <a class="dropdown-item" href="chalkboard_03.html">Digital Chalkboard 03</a>
-                    <a class="dropdown-item" href="chalkboard_04.html">Digital Chalkboard 04</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
-<!-- Navbar End -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTechnical" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Technical Assignments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTechnical">
+                        <a class="dropdown-item" href="technical_02.html">Technical Assignment 02</a>
+                        <a class="dropdown-item" href="technical_03.html">Technical Assignment 03</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDigital" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Digital Chalkboard
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownDigital">
+                        <a class="dropdown-item" href="chalkboard_03.html">Digital Chalkboard 03</a>
+                        <a class="dropdown-item" href="chalkboard_04.html">Digital Chalkboard 04</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navbar End -->
 
     <div class="row text-center my-4">
         <div class="col-md-3 col-sm-6 my-column">
@@ -73,11 +75,11 @@
         var now = new Date();
         var hour = now.getHours();
         if (hour < 12) {
-            alert('Good morning');
+            alert('Good morning ☀');
         } else if (hour < 18) {
-            alert('Good day');
+            alert('Good afternoon⁺₊⁺₊');
         } else {
-            alert('Good evening');
+            alert('Good evening ⋆⁺₊⋆ ☾⋆⁺₊⋆');
         }
     };
 

@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 20px; /* Adjust this value to increase or decrease the overall page margin */
     padding: 0;
     background-color: #f8f9fa; 
     color: #343a40; 
@@ -37,6 +37,10 @@ p {
 
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
+    body {
+        margin: 10px; /* Smaller margin for smaller screens */
+    }
+    
     h1 {
         font-size: 2em;
     }
