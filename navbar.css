@@ -1,7 +1,13 @@
 /* Navbar styles */
 .navbar {
     background-color: maroon; /* Use important only if necessary */
-    padding: 0.5rem 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar .container {
+    padding: 0;
+    margin: 0 auto; /* Center the navbar container */
 }
 
 .navbar, .navbar * {
@@ -34,7 +40,6 @@
     background-color: #953b39;
 }
 
-/* Standardize the dropdown arrow with additional space */
 .navbar .nav-item.dropdown .nav-link {
     padding-right: 2.5rem; /* Increased padding to ensure space before the arrow */
 }

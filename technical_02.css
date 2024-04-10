@@ -1,28 +1,29 @@
-body {
+.console-container {
+    margin-top: 40px;
     background-color: black;
-    color: #33ff33; /* Bright green text */
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for that retro feel */
+    color: #33ff33;
+    white-space: pre-wrap;
+    overflow: auto;
+    height: 90%;
+    padding: 20px;
+    border: 2px solid #33ff33;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+
+body {
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 20px;
-    height: 100vh; /* Full height of the viewport */
-    overflow: hidden; /* Prevent scrolling */
-}
-
-.console-container {
-    white-space: pre-wrap; /* Allows text formatting with whitespace */
-    overflow: auto; /* Allows scrolling within the container if content overflows */
-    height: 90%; /* Height of the console container */
-    padding: 20px;
-    border: 2px solid #33ff33; /* Bright green border */
-
-}
-
-.console-container:focus {
-    animation: blink-cursor 1s step-end infinite;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .console-text {
-    margin: 0; /* Adjusts the margin for the text */
+    margin: 0;
 }
 
 @keyframes blink-cursor {
