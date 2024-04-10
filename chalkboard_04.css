@@ -1,117 +1,18 @@
+/* Existing styles */
 body {
     padding-top: 20px;
+    /* Make sure you have Arial here if the rest of the page uses a different font */
+    font-family: 'Arial', sans-serif;
 }
 
 .my-column {
-    background-color: #f0f0f0; /* Subtle background color */
+    background-color: #f0f0f0;
     padding: 20px;
-    margin: 10px 0; /* Adds spacing between the columns */
+    margin: 10px 0;
 }
 
 @media (max-width: 576px) {
     .my-column {
-        margin-bottom: 20px; /* Ensures columns stack with space between on small screens */
+        margin-bottom: 20px;
     }
 }
-
-.navbar {
-    background-color: maroon;
-    padding: 0.5rem 1rem;
-}
-
-.navbar-nav {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
-.navbar-nav .nav-item {
-    position: relative;
-    padding: 0 10px;
-}
-
-.navbar-nav .nav-link {
-    color: white;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 20px;
-}
-
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
-    background-color: #953b39;
-}
-
-.navbar .nav-item.dropdown .nav-link {
-    padding-right: 2rem;
-}
-
-.navbar .nav-item.dropdown .nav-link:after {
-    content: '\25BC';
-    font-size: 0.7em;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.navbar .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: maroon;
-    border-radius: 5px;
-    margin-top: 0.5rem;
-    white-space: nowrap;
-}
-
-.navbar .nav-item:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-item {
-    color: white;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    display: block;
-    clear: both;
-    white-space: nowrap;
-}
-
-.dropdown-item:hover, .dropdown-item:focus {
-    background-color: #953b39;
-    border-radius: 5px;
-}
-
-.header-banner {
-    background-color: maroon;
-    color: white;
-    text-align: center;
-    padding: 50px;
-    border: 2px solid white;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 800px;
-}
-
-header h1 {
-    font-size: 2.75em;
-    margin-bottom: 20px;
-}
-
-header p {
-    font-size: 1.95em;
-    margin-top: -20px;
-    margin-bottom: 30px;
-}
-
-.header-banner em {
-    font-size: 0.8em;
-}
-
-.header-banner .spacer {
-    margin-bottom: 50px;
-}
-

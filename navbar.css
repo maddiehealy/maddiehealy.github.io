@@ -1,12 +1,14 @@
-/* Base styles for the navbar */
+/* Navbar styles */
 .navbar {
-    background-color: maroon;
+    background-color: maroon; /* Use important only if necessary */
     padding: 0.5rem 1rem;
-    font-family: 'Arial', sans-serif;
 }
 
-/* Style navbar navigation items */
-.navbar .navbar-nav {
+.navbar, .navbar * {
+    font-family: 'Arial', sans-serif !important;
+}
+
+.navbar-nav {
     list-style: none;
     padding-left: 0;
     margin: 0;
@@ -16,41 +18,35 @@
     width: 100%;
 }
 
-/* Style for navigation items */
-.navbar .nav-item {
+.navbar-nav .nav-item {
     position: relative;
-    padding: 0 10px;
+    padding: 0 20px; /* Increased padding for more space between items */
 }
 
-/* Style for navigation links */
-.navbar .nav-link {
+.navbar-nav .nav-link {
     color: white;
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 20px;
 }
 
-/* Hover and focus states for navigation links */
-.navbar .nav-link:hover,
-.navbar .nav-link:focus {
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
     background-color: #953b39;
 }
 
-/* Dropdown link padding and after pseudo-element */
-.navbar .dropdown .nav-link {
-    padding-right: 2rem;
+/* Standardize the dropdown arrow with additional space */
+.navbar .nav-item.dropdown .nav-link {
+    padding-right: 2.5rem; /* Increased padding to ensure space before the arrow */
 }
-
-.navbar .dropdown .nav-link:after {
-    content: '\25BC';
+.navbar .nav-item.dropdown .nav-link::after {
+    content: '\25BC'; /* Use the standard dropdown arrow */
     font-size: 0.7em;
     position: absolute;
-    right: 1rem;
+    right: 10px; /* Adjusted position to ensure space between text and arrow */
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* Dropdown menu display and styling */
 .navbar .dropdown-menu {
     display: none;
     position: absolute;
@@ -60,22 +56,20 @@
     white-space: nowrap;
 }
 
-/* Show the dropdown menu on hover */
-.navbar .nav-item:hover .dropdown-menu,
-.navbar .nav-item:focus-within .dropdown-menu {
+.navbar .nav-item:hover .dropdown-menu {
     display: block;
 }
 
-/* Dropdown item styling */
-.navbar .dropdown-item {
+.dropdown-item {
     color: white;
     text-decoration: none;
     padding: 0.75rem 1.5rem;
+    display: block;
+    clear: both;
+    white-space: nowrap;
 }
 
-/* Hover and focus states for dropdown items */
-.navbar .dropdown-item:hover,
-.navbar .dropdown-item:focus {
+.dropdown-item:hover, .dropdown-item:focus {
     background-color: #953b39;
     border-radius: 5px;
 }

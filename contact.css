@@ -1,33 +1,33 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Adds a slight background color to the whole page for contrast */
+    font-family: 'Arial', sans-serif;
 }
 
-/* New main content wrapper styles */
-.main-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
+.header-banner {
+    background-color: maroon;
+    color: white;
     text-align: center;
-    background-color: maroon; /* Sets the background of the box to maroon */
-    padding: 40px; /* Adds padding inside the box */
-    border-radius: 10px; /* Optionally rounds the corners of the box */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionally adds a subtle shadow for depth */
-    color: white; /* Sets text color to white for contrast */
+    padding: 50px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
 }
 
-h1 {
-    margin-bottom: 0.5em;
+header h1 {
+    font-size: 2.75em;
+    margin-bottom: 20px;
 }
 
-p {
-    margin-top: 0;
+header p {
+    font-size: 1.95em;
+    margin-top: -20px;
+    margin-bottom: 30px;
 }
 
-/* Navbar and other existing styles remain the same */
+.header-banner em {
+    font-size: 0.8em;
+}
+
+.header-banner .spacer {
+    margin-bottom: 50px;
+}

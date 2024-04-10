@@ -4,51 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Assignment 02 - Retro Console Look</title>
-    <link rel="stylesheet" href="technical_02.css">
+    <!-- Ensure consistency by using the same Bootstrap version as other pages -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <!-- Link to the navbar.css to maintain consistent navbar styling -->
     <link rel="stylesheet" href="navbar.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="technical_02.css">
 </head>
+<body tabindex="0">
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTechnical" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Technical Assignments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTechnical">
+                        <a class="dropdown-item" href="technical_02.html">Technical Assignment 02</a>
+                        <a class="dropdown-item" href="technical_03.html">Technical Assignment 03</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDigital" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Digital Chalkboard
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownDigital">
+                        <a class="dropdown-item" href="chalkboard_03.html">Digital Chalkboard 03</a>
+                        <a class="dropdown-item" href="chalkboard_04.html">Digital Chalkboard 04</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navbar End -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTechnical" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Technical Assignments
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownTechnical">
-                    <a class="dropdown-item" href="technical_02.html">Technical Assignment 02</a>
-                    <a class="dropdown-item" href="technical_03.html">Technical Assignment 03</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDigital" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Digital Chalkboard
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownDigital">
-                    <a class="dropdown-item" href="chalkboard_03.html">Digital Chalkboard 03</a>
-                    <a class="dropdown-item" href="chalkboard_04.html">Digital Chalkboard 04</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
-<!-- Navbar End -->
-
-
-<body tabindex="0"> 
     <div class="console-container">
         <p class="console-text">Retro Console Look</p>
         <p class="console-text">This is a simulation of a retro console.</p>
         <p class="console-text">> Beep beep...</p>
     </div>
+
+    <!-- Bootstrap JS Bundle with Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
