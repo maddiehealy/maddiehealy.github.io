@@ -1,9 +1,19 @@
+/* Remove the margin and padding from body */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px; /* Adjust this value to increase or decrease the overall page margin */
-    padding: 0;
     background-color: #f8f9fa; 
     color: #343a40; 
+}
+
+/* Apply the main content styles to .content-wrapper class instead */
+.content-wrapper {
+    margin: 20px; 
+    padding: 0;
+}
+
+h1, h2, p {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 h1 {
@@ -27,29 +37,4 @@ p {
     margin-bottom: 20px;
 }
 
-.container {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-    body {
-        margin: 10px; /* Smaller margin for smaller screens */
-    }
-    
-    h1 {
-        font-size: 2em;
-    }
-    
-    h2 {
-        font-size: 1.8em;
-    }
-    
-    p {
-        font-size: 1em;
-    }
-}
+/* If you have styles for .container or other specific elements, make sure they don't unintentionally affect the navbar */
