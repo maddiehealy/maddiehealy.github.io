@@ -11,8 +11,20 @@ body {
     margin: 10px 0;
 }
 
-@media (max-width: 576px) {
+.my-column {
+    padding: 15px;
+}
+
+@media (min-width: 992px) {
     .my-column {
-        margin-bottom: 20px;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+@media (max-width: 991px) {
+    .my-column {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
