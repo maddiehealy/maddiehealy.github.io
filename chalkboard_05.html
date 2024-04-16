@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Chalkboard Assignment 04</title>
+    <title>Digital Chalkboard Assignment 05</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/pixel_heart.png">
     <link href="chalkboard_04.css" rel="stylesheet">
     <link href="navbar.css" rel="stylesheet">
 </head>
-
 <body>
      <!-- Navbar Start -->
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -52,57 +51,21 @@
         </div>
     </nav>
     <!-- Navbar End -->
-    
-<!-- Main content container -->
-<h1 class="text-center">Digital Chalkboard Assignment 04</h1>
-<div class="container my-4">
-    <!-- Row for columns -->
-    <div class="row">
-        <div class="col-4 my-column">
-            <h3><strong>Column One</strong></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="col-4 my-column">
-            <h3><strong>Column Two</strong></h3>
-            <p>Donec nec justo eget felis facilisis fermentum.</p>
-        </div>
-        <div class="col-4 my-column">
-            <h3><strong>Column Three</strong></h3>
-            <p>Aliquam porttitor mauris sit amet orci.</p>
-        </div>
-    </div> <!-- Closing the row for the columns -->
-        
-    <!-- Row for buttons -->
-    <div class="row">
-        <div class="col-12 center-buttons">
-            <button id="greetingButton" class="btn btn-maroon mx-2">Greet Me</button>
-            <button id="changeButton" class="btn btn-maroon mx-2">Submit</button>
-        </div>
-    </div> <!-- Closing the row for the buttons -->
 
-<script>
-document.getElementById('greetingButton').onclick = function() {
-    var now = new Date();
-    var hour = now.getHours();
-    if (hour < 12) {
-        alert('Good morning ☀');
-    } else if (hour < 16) {
-        alert('Good afternoon⁺₊⁺₊');
-    } else {
-        alert('Good evening ⋆⁺₊⋆ ☾⋆⁺₊⋆');
-    }
-};
+    <!-- Trivia Function-->
+    <div id="triviaSection">
+        <h2>Trivia Question</h2>
+        <div id="question">What is the capital of France?</div>
+        <input type="text" id="triviaAnswer" placeholder="Your answer...">
+        <button onclick="triviaQuestion()">Submit Answer</button>
+    </div>
 
-document.getElementById('changeButton').onclick = function() {
-    var button = document.getElementById('changeButton');
-    button.textContent = 'Done';
-    button.className = 'btn btn-maroon mx-2';
-};
+    <!-- Even or Odd Function-->
+    <div id="numberSection">
+        <h2>Check If Five-Digit Number is Odd or Even</h2>
+        <input type="text" id="numberInput" placeholder="Enter a 5-digit number">
+        <button onclick="checkNumber()">Check Number</button>
+    </div>
 
-</script>
 </body>
 </html>
-
-
-<!-- Bootstrap 5 JS Bundle with Popper -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
