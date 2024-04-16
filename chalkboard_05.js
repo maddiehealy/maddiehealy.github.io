@@ -4,6 +4,7 @@ function triviaQuestion() {
     const isCorrect = correctAnswers.includes(answer.toLowerCase());
     const response = isCorrect ? "correct" : "incorrect";
     alert(`Your guess was: ${answer} and it is ${response}.`);
+    triviaInput.value = '';
 }
 
 
@@ -18,6 +19,7 @@ function checkNumber() {
 
     const result = num % 2 === 0 ? "even" : "odd";
     alert(`The number ${num} is ${result}.`);
+    numberInput.value = ''; 
 }
 
 document.getElementById("triviaAnswer").addEventListener("keypress", function(event) {
