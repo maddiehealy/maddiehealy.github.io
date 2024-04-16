@@ -9,11 +9,13 @@ function triviaQuestion() {
 
 function checkNumber() {
     const number = document.getElementById("numberInput").value;
-    if (!/^\d{5}$/.test(number)) {
-        alert("Please enter a 5-digit number.");
+    const num = parseInt(number, 10);
+
+    if (isNaN(num) || number.length !== 5) {
+        alert("Please enter a valid 5-digit number.");
         return;
     }
-    const num = parseInt(number, 10);
+
     const result = num % 2 === 0 ? "even" : "odd";
     alert(`The number ${num} is ${result}.`);
 }
