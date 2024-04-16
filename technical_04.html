@@ -45,61 +45,47 @@
 <h1>Technical Assignment 04</h1>
 
 <h2>Playing around with <strong>Layout</strong></h2>
-<!-- Responsive Image Example -->
+<!-- Responsive Image & Column Example -->
 <div class="container-fluid my-5">
-    <div class="row">
-        <div class="col-4">
-            <img src="images/siamese_cat.jpg" class="img-fluid" alt="Siamese Cat" style="height: 150px; object-fit: cover;">
-        </div>
-        <div class="col-4">
-            <img src="images/bengal_cat.jpg" class="img-fluid" alt="Bengal Cat" style="height: 150px; object-fit: cover;">
-        </div>
-        <div class="col-4">
-            <img src="images/persian_cat.jpg" class="img-fluid" alt="Persian Cat" style="height: 150px; object-fit: cover;">
-        </div>
-    </div>
+    <table class="table">
+        <tr>
+            <td>
+                <h3><em>Siamese</em></h3>
+                <img src="images/siamese_cat.jpg" class="img-fluid" alt="Siamese Cat">
+            </td>
+            <td>
+                <h3><em>Bengal</em></h3>
+                <img src="images/bengal_cat.jpg" class="img-fluid" alt="Bengal Cat">
+            </td>
+            <td>
+                <h3><em>Persian</em></h3>
+                <img src="images/persian_cat.jpg" class="img-fluid" alt="Persian Cat">
+            </td>
+        </tr>
+    </table>
 </div>
 
-
-<!-- Column Example -->
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-4">
-            <h3>Column One</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat eget enim in volutpat.</p>
-        </div>
-        <div class="col-md-4">
-            <h3>Column Two</h3>
-            <p>Aliquam erat volutpat. Sed condimentum orci vel volutpat ornare. Vestibulum frente ipsum primis in faucibus.</p>
-        </div>
-        <div class="col-md-4">
-            <h3>Column Three</h3>
-            <p>Mauris mattis felis at nunc fringilla, vitae posuere justo venenatis. Donec vehicula magna ac laoreet auctor.</p>
-        </div>
-    </div>
-</div>
-
+<hr>
 
 <h2>Playing around with <strong>Content</strong></h2>
 <!-- Typography Example -->
 <div class="container my-5">
     <p><small>Here is some smaller text,</small> <em>some emphasized text,</em> <strong>and some bolded text.</strong></p>
-    <p>We can use different styles of text to better express messages, like ones <s>we take back</s>and ones <m>we really want to remember</m></p>
+    <p>We can use different styles of text to better express messages, like ones <s>we later delete</s> and ones <mark>we really want to emphasize.</mark></p>
+    <blockquote>This is a blockquote used to indicate the quotation of a large section of text from another source.</blockquote>
+    <p><code>Code element</code> is used to denote user input, programming code, or other technical text.</p>
+    <p><u>And lastly, here we have an example of underlined text.</u></p>
 </div>
+
+<hr>
 
 <h2>Playing around with <strong>Components</strong></h2>
 
 <!-- Buttons Example -->
 <div class="container my-5">
-    <button type="button" class="btn btn-primary">Primary Button</button>
-    <button type="button" class="btn btn-secondary">Secondary Button</button>
-    <button type="button" class="btn btn-success">Success Button</button>
-    <button type="button" class="btn btn-danger">Danger Button</button>
-    <button type="button" class="btn btn-warning">Warning Button</button>
-    <button type="button" class="btn btn-info">Info Button</button>
-    <button type="button" class="btn btn-light">Light Button</button>
-    <button type="button" class="btn btn-dark">Dark Button</button>
-    <button type="button" class="btn btn-link">Link Button</button>
+    <a href="https://github.com/maddiehealy/maddiehealy.github.io" target="_blank" class="btn custom-btn" role="button" title="Visit my GitHub Repository">Visit My GitHub Repository</a>
+    <a href="https://digitalculture.uchicago.edu/" target="_blank" class="btn custom-btn" role="button" title="Visit the UChicago Digital Culture site">Look at UChicago Forum for Digital Culture</a>
+    <a href="https://linkedin.com/in/maddie-healy" target="_blank" class="btn custom-btn" role="button" title="Visit my LinkedIn">Or even my LinkedIn!</a>
 </div>
 
 <!-- Accordion Example -->
@@ -132,6 +118,39 @@
         </div>
     </div>
 </div>
+
+<div id="catCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#catCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#catCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#catCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- The slideshow/images -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="images/siamese_cat.jpg" class="d-block w-100" alt="Siamese Cat">
+        </div>
+        <div class="carousel-item">
+            <img src="images/bengal_cat.jpg" class="d-block w-100" alt="Bengal Cat">
+        </div>
+        <div class="carousel-item">
+            <img src="images/persian_cat.jpg" class="d-block w-100" alt="Persian Cat">
+        </div>
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#catCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#catCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
 
 <!-- Carousel Example -->
 <div class="container my-5">
@@ -176,6 +195,6 @@
     </div>
 </div>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
