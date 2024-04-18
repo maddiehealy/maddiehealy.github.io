@@ -7,9 +7,9 @@ body {
 
 /* General styles for .main-content area */
 .main-content {
-    padding: 2rem; /* Padding inside the container */
-    margin: 2rem auto; /* Margin around the container */
-    max-width: 96%; /* Control space the container takes */
+    padding: 2rem;
+    margin: 2rem auto; 
+    max-width: 96%; 
 }
 
 /* Table specific styles */
@@ -30,45 +30,44 @@ body {
 /* Styles for anchor links */
 .custom-link {
     text-decoration: none;
-    color: #007bff; /* Bright link color */
+    color: #007bff; 
 }
 
 .custom-link:visited {
-    color: #0056b3; /* Darker color for visited links */
+    color: #0056b3; 
 }
 
 .custom-link:hover {
-    color: #0056b3; /* Change color on hover */
+    color: #0056b3; 
 }
 
 /* List styles */
 .a {
-    list-style-type: lower-roman; /* Lower case roman numerals */
+    list-style-type: lower-roman; 
 }
 
 .b {
-    list-style-type: lower-alpha; /* Lower case letters */
-}
+    list-style-type: lower-alpha; 
 
 .c {
-    list-style-type: square; /* Squares instead of bullets */
+    list-style-type: square; 
 }
 
 .d li::before {
-    content: '$\00a0'; /* Dollar sign followed by a non-breaking space */
-    margin-right: 5px; /* Space between the dollar sign and the list item text */
+    content: '$\00a0'; 
+    margin-right: 5px; 
 }
 
 /* Styles for the first letter of every list item in main content */
 .main-content li::first-letter {
-    font-size: 150%; /* Larger size */
-    font-weight: bold; /* Bolder weight */
-    font-family: 'Jost', sans-serif; /* Ensure 'Jost' font is applied */
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Jost', sans-serif;
 }
 
 /* Reset styles for the navbar to use 'Arial' */
 .navbar,
 .navbar * {
-    font-family: 'Arial', sans-serif; /* Apply Arial font to navbar */
+    font-family: 'Arial', sans-serif;
     font-weight: normal;
 }
