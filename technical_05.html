@@ -57,12 +57,18 @@
 
 <hr> 
 
-    <h2>Example</h2>
-    <button onclick="playSound()">▶</button>
-    <button onclick="pauseSound()">▐▐</button>
-    <button onclick="stopSound()">◼</button>
+<h2>Take Five - The Dave Brubeck Quartet</h2>
 
-    <script>CDN link</script>
+<div class="audio-controls">
+    <input type="range" min="0" max="1" step="0.01" value="1" id="volumeSlider" onchange="changeVolume()" class="form-range">
+    <div class="btn-group" role="group" aria-label="Audio Controls">
+        <button type="button" class="btn btn-primary" onclick="playSound()">▶</button>
+        <button type="button" class="btn btn-primary" onclick="pauseSound()">▐▐</button>
+        <button type="button" class="btn btn-primary" onclick="stopSound()">◼</button>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script src="technical_05.js"></script>
 </body>
 </html>

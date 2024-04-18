@@ -1,5 +1,5 @@
 var sound = new Howl({
-    src: ['PUT MY LINK HERE'],
+    src: ['audio/takefive.mp3'],
     html5: true 
 });
 
@@ -14,3 +14,9 @@ function pauseSound() {
 function stopSound() {
     sound.stop();
 }
+
+function changeVolume() {
+    var volume = document.getElementById("volumeSlider").value;
+    sound.volume(volume);
+}
+
