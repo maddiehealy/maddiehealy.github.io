@@ -56,23 +56,52 @@
  <!-- Navbar End -->
 
 <h1>Digital Chalkboard Assignment 06</h1>
- 
+
 <div class="content-box">
-    <!-- Existing content goes here -->
     <div class="container mt-4">
-        <h3 class="text-center">Array Analyzer</h3>
-        <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi'])">
-            Display Last Alphabetical Item
+        <h2 class="text-center">Sorting Fruit</h2>
+        <p>For the following sets of JS functions, we work on sorting an assortment of fruits alphabetically, ultimately delivering whatever fruit comes last in the alphabet. Note that each part builds upon the previous one.</p>
+
+        <!-- Part 1 -->
+        <h3>Part 1: Initial Sorting</h3>
+        <p>In this first section, we want to determine which inputted fruit comes last in the alphabet. Our fruit array currently lists: 'Watermelon', 'Apple', 'Orange', and 'Kiwi'.</p>
+        <p><em>Can our function output the last alphabetical fruit?</em></p>
+        <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi'], 'output1')">
+            Results
         </button>
-        <div id="output" class="mt-3"></div>
-        <!-- More content -->
+        <div id="output1" class="mt-3"></div>
+
+        <hr>
+
+        <!-- Part 2 -->
+        <h3>Part 2: Testing Success by Adding More</h3>
+        <p>Now that we have experimented alphabetizing the 4 given fruits above, let's test this function further. Let's add "Banana", "Blueberries", "Mango", and "Peach" into the fruit salad we have already made.</p>
+        <p><em>If we add in more fruits, is the sorting still successful?</em></p>
+        <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi', 'Blueberries', 'Mango', 'Peach'], 'output2')">
+            Results
+        </button>
+        <div id="output2" class="mt-3"></div>
+
+        <hr>
+
+        <!-- Part 3 -->
+        <h3>Part 3: Testing with fruits later in the alphabet</h3>
+        <p>This next function sorts: 'Watermelon', 'Apple', 'Orange', 'Kiwi', 'Blueberries', 'Mango', 'Peach', and 'Yuzu' alphabetically.</p>
+        <p><em>What about if we add a fruit that starts with a letter that comes after the W in "Watermelon"? Can our sorting function handle that?</em></p>
+        <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi', 'Blueberries', 'Mango', 'Peach', 'Yuzu'], 'output3')">
+            Results
+        </button>
+        <div id="output3" class="mt-3"></div>
     </div>
 </div>
 
 
+
 <div class="content-box">
     <div class="container mt-4">
-        <h3 class="text-center">Enter Your Categories and Items</h3>
+        <h2 class="text-center">Sorting Anything & Everything</h2>
+        <p><em>With this function, you are prompted to enter in 3 categories first. Then, based upon those categories, enter in an item (ex: if you put in Color as your category, then your item may be something like Blue.)</em></p>
+        <p><em>Get started by pressing the button below to prompt a pop-up.</em></p>
         <form id="itemForm">
             <button type="submit" class="btn btn-success mt-3">Start Submission</button>
         </form>
