@@ -1,42 +1,55 @@
-// Function to display the last item alphabetically from the array
-function lastItem(items) {
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = "Original array: " + JSON.stringify(items);
-
-    // Sorting a copy of the array to find the last item alphabetically
-    const sortedItems = [...items].sort();
-    const lastAlphabetical = sortedItems[sortedItems.length - 1];
-
-    // Displaying the last alphabetical item
-    outputDiv.innerHTML += "<br>Last item alphabetically: " + lastAlphabetical;
+function capitalize(text) {
+    return text.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 }
 
-// Function to collect items from user input and sort them alphabetically
-function collectAndSortItems() {
-    const numberOfItems = prompt("How many items would you like to enter? (between 2 and 4)");
-    const itemCount = parseInt(numberOfItems, 10);
+function collectCategoriesAndItems() {
+    // Ask the user how many categories they would like to enter (between 2 and 4).
+    const numberOfCategories = prompt("How many categories would you like to enter? (between 2 and 4)");
+    const categoryCount = parseInt(numberOfCategories, 10);
 
-    if (isNaN(itemCount) || itemCount < 2 || itemCount > 4) {
+    // Validate the number of categories.
+    if (isNaN(categoryCount) || categoryCount < 2 || categoryCount > 4) {
         alert("Please enter a valid number between 2 and 4.");
         return;
     }
 
-    let items = [];
-    for (let i = 0; i < itemCount; i++) {
-        let item = prompt(`Enter item ${i + 1}`);
-        if (item) {
-            items.push(item);
+    // Initialize arrays to store categories and a global list to store all items.
+    let categories = [];
+    let allItems = [];
+
+    // Collect categories from the user.
+    for (let i = 0; i < categoryCount; i++) {
+        let category = prompt(`Enter category ${i + 1} of ${categoryCount}:`);
+        if (category) {
+            categories.push(capitalize(category)); // Capitalize and store the category
         }
     }
 
-    items.sort(); // Sorting the items alphabetically
+    // Collect items for each category and store them in the global list.
+    categories.forEach(category => {
+        let item = prompt(`Enter an item for the category '${category}':`);
+        if (item) {
+            allItems.push({category, item: capitalize(item)}); // Capitalize and store the item
+        }
+    });
 
+    // Sort all items alphabetically based on the 'item' field.
+    allItems.sort((a, b) => a.item.localeCompare(b.item));
+
+    // Prepare output string for sorted items.
+    let itemsOutput = allItems.map(entry => `${entry.item} (Category: ${entry.category})`).join('<br>');
+    let submittedItems = allItems.map(entry => entry.item).join(', ');
+
+    // Display the sorted items in the designated div.
     const sortedItemsDiv = document.getElementById('sortedItems');
-    sortedItemsDiv.innerHTML = `You entered: ${itemCount} items<br>Categories chosen: ` + items.join(', ');
+    sortedItemsDiv.innerHTML = `All items sorted alphabetically:<br>${itemsOutput}`;
+
+    // Provide feedback to the user about their submissions.
+    alert(`You submitted ${submittedItems} to be sorted. Check the display below for alphabetical sorting on the items.`);
 }
 
-// Event listener for the form to handle item submissions
+// Add event listener for the form if there is a form submission approach in HTML.
 document.getElementById('itemForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    collectAndSortItems();
+    collectCategoriesAndItems();
 });
