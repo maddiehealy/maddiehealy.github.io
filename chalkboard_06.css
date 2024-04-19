@@ -10,28 +10,51 @@ body {
     margin: 0;
 }
 
-#output {
+.content-box {
+    width: 80%; /* Adjust width as needed */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adds depth with a subtle shadow */
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left side within the box */
+}
+
+#output, #sortedItems {
     font-size: 18px;
     color: #333;
-    padding: 40px; /* Increased padding for a cleaner look */
+    padding: 40px;
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     border-radius: 5px;
-    margin-top: 5px; /* Added margin-top for spacing above the text box */
+    margin-top: 20px;
     margin-bottom: 20px;
+    width: 100%;
+    text-align: left; /* Left-aligns the text inside the output and sorted items divs */
+}
+
+/* Ensuring left alignment of text within forms */
+form {
+    width: 100%;
+    text-align: left;
+}
+
+input, button {
+    margin-top: 5px; /* Ensures spacing between form elements */
 }
 
 button {
     cursor: pointer;
-    background-color: maroon;
-    color: white;
+    background-color: maroon; /* Maroon color maintained */
+    color: white; /* White text for contrast */
     border: none;
     padding: 10px 20px;
-    border-radius: 15px;
-    transition: background-color 0.3s;
-    margin-bottom: 20px; /* Added bottom margin to separate buttons from the text box */
+    border-radius: 15px; /* Rounded edges */
+    transition: background-color 0.3s; /* Smooth hover effect */
 }
 
 button:hover {
-    background-color: #a00000;
+    background-color: #a00000; /* Darker maroon on hover */
 }

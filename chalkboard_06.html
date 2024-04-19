@@ -57,15 +57,28 @@
 
 <h1>Digital Chalkboard Assignment 06</h1>
  
-<div class="container mt-4">
-    <h2 class="text-center">Array Analyzer</h2>
-    <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi'])">
-        Display Last Alphabetical Item
-    </button>
-    <div id="output" class="mt-3"></div>
+<div class="content-box">
+    <!-- Existing content goes here -->
+    <div class="container mt-4">
+        <h3 class="text-center">Array Analyzer</h3>
+        <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi'])">
+            Display Last Alphabetical Item
+        </button>
+        <div id="output" class="mt-3"></div>
+        <!-- More content -->
+    </div>
+</div>
 
-    <!-- Button to trigger input collection -->
-    <button class="btn btn-info mt-3" onclick="collectAndSortItems()">Enter and Sort Items</button>
+
+<div class="content-box">
+    <h3>Enter Your Items</h3>
+    <form id="itemForm">
+        <label for="itemCount">How many items? (2-4)</label>
+        <input type="number" id="itemCount" name="itemCount" min="2" max="4" required>
+        <button type="button" class="btn btn-info" onclick="createInputFields()">Set Number of Items</button>
+        <div id="itemInputs"></div>
+        <button type="submit" class="btn btn-success mt-3">Submit Items</button>
+    </form>
     <div id="sortedItems" class="mt-3"></div>
 </div>
 
