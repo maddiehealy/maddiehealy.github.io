@@ -15,14 +15,14 @@ function lastItem(fruits, outputId) {
 function collectCategoriesAndItems() {
     const numberOfCategories = prompt("How many categories would you like to enter? (between 2 and 4)");
     const categoryCount = parseInt(numberOfCategories, 10);
-
     if (isNaN(categoryCount) || categoryCount < 2 || categoryCount > 4) {
-        alert("Please enter a valid number between 2 and 4.");
+        alert("Invalid response. Please only enter a valid number between 2 and 4.");
         return;
     }
 
     let categories = [];
     let allItems = [];
+    let itemsWithCategories = [];  // storing items with their categories for original order display
 
     for (let i = 0; i < categoryCount; i++) {
         const category = prompt(`Enter category ${i + 1} of ${categoryCount}:`);
@@ -34,21 +34,21 @@ function collectCategoriesAndItems() {
     categories.forEach(category => {
         const item = prompt(`Enter an item for the category '${category}':`);
         if (item) {
+            let formattedItem = `${capitalize(item)} (${category})`; // formatting the item with its category
             allItems.push(capitalize(item));
+            itemsWithCategories.push(formattedItem); // adding to the list of items with categories
         }
     });
 
-    allItems.sort((a, b) => a.localeCompare(b));
-    const sortedItemsDiv = document.getElementById('sortedItems');
-    sortedItemsDiv.innerHTML = `All items sorted alphabetically: ${allItems.join(', ')}`;
+    allItems.sort((a, b) => a.localeCompare(b)); // sorting just the item names alphabetically
 
-    alert(`You submitted ${allItems.join(', ')} to be sorted. Check the display below.`);
+    // Prepare HTML content to display
+    const outputDiv = document.getElementById('categoryItemsOutput');
+    outputDiv.innerHTML = `<strong>Original Submissions:</strong> ${itemsWithCategories.join(', ')}<br>`; // Display items in the original order with categories
+    outputDiv.innerHTML += `<strong>All items sorted alphabetically:</strong> ${allItems.join(', ')}`; // Add sorted items
+
+    alert(`You submitted items to be sorted. Check the display below.`);
 }
-
-document.getElementById('itemForm')?.addEventListener('submit', function(event) {
-    event.preventDefault();
-    collectCategoriesAndItems();
-});
 
 function toggleVisibility(elementId) {
     const element = document.getElementById(elementId);
@@ -58,3 +58,8 @@ function toggleVisibility(elementId) {
         element.style.display = 'none';
     }
 }
+
+document.getElementById('itemForm')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    collectCategoriesAndItems();
+});
