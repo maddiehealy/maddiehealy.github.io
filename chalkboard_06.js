@@ -3,11 +3,11 @@ function capitalize(text) {
 }
 
 function lastItem(fruits, outputId) {
-    fruits.sort((a, b) => a.localeCompare(b));
+    fruits.sort();
     const lastAlphabetical = fruits[fruits.length - 1];
     const outputDiv = document.getElementById(outputId);
     if (!outputDiv.innerHTML) {
-        outputDiv.innerHTML = `Fruits sorted: ${fruits.join(', ')}<br>Last Alphabetical Item: ${lastAlphabetical}`;
+        outputDiv.innerHTML = `Fruits sorted: ${fruits.join(', ')} <br>Last Alphabetical Item: ${lastAlphabetical}`;
     }
     toggleVisibility(outputId);
 }
@@ -22,7 +22,7 @@ function collectCategoriesAndItems() {
 
     let categories = [];
     let allItems = [];
-    let itemsWithCategories = [];  // storing items with their categories for original order display
+    let itemsWithCategories = [];
 
     for (let i = 0; i < categoryCount; i++) {
         const category = prompt(`Enter category ${i + 1} of ${categoryCount}:`);
@@ -34,19 +34,17 @@ function collectCategoriesAndItems() {
     categories.forEach(category => {
         const item = prompt(`Enter an item for the category '${category}':`);
         if (item) {
-            let formattedItem = `${capitalize(item)} (${category})`; // formatting the item with its category
+            let formattedItem = `${capitalize(item)} (${category})`;
             allItems.push(capitalize(item));
-            itemsWithCategories.push(formattedItem); // adding to the list of items with categories
+            itemsWithCategories.push(formattedItem);
         }
     });
 
-    allItems.sort((a, b) => a.localeCompare(b)); // sorting just the item names alphabetically
+    allItems.sort();
 
-    // Prepare HTML content to display
     const outputDiv = document.getElementById('categoryItemsOutput');
-    outputDiv.innerHTML = `<strong>Original Submissions:</strong> ${itemsWithCategories.join(', ')}<br>`; // Display items in the original order with categories
-    outputDiv.innerHTML += `<strong>All items sorted alphabetically:</strong> ${allItems.join(', ')}`; // Add sorted items
-
+    outputDiv.innerHTML = `<strong>Original Submissions:</strong> ${itemsWithCategories.join(', ')}
+<br><strong>All items sorted alphabetically:</strong> ${allItems.join(', ')}`;
     alert(`You submitted items to be sorted. Check the display below.`);
 }
 
@@ -59,7 +57,7 @@ function toggleVisibility(elementId) {
     }
 }
 
-document.getElementById('itemForm')?.addEventListener('submit', function(event) {
+document.getElementById('itemForm').addEventListener('submit', function(event) {
     event.preventDefault();
     collectCategoriesAndItems();
 });
