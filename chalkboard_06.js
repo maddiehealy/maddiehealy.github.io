@@ -3,12 +3,11 @@ function capitalize(text) {
 }
 
 function lastItem(fruits, outputId) {
+    const originalFruits = fruits.join(', ');
     fruits.sort();
     const lastAlphabetical = fruits[fruits.length - 1];
     const outputDiv = document.getElementById(outputId);
-    if (!outputDiv.innerHTML) {
-        outputDiv.innerHTML = `Fruits sorted: ${fruits.join(', ')} <br>Last Alphabetical Item: ${lastAlphabetical}`;
-    }
+    outputDiv.innerHTML = `The original array was ${originalFruits} and I sorted it alphabetically. The last item of the sorted array was: ${lastAlphabetical}`;
     toggleVisibility(outputId);
 }
 
