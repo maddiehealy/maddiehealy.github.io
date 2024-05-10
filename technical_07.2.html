@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+ <!-- Navbar Start -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item">
@@ -53,61 +55,17 @@
         </ul>
     </div>
  </nav>
+ <!-- Navbar End -->
  
- <h1>Technical Assignment 07</h1>
- <h2><em>Experimenting with Deeper XML and OCHRE API</em></h2>
- 
+ <h1>Technical Assignment 07 - Item 2 Details</h1>
  <div class="container mt-4">
-     <h1>Item Overview</h1>
-     <div id="items-list" class="row"></div>
+     <h1>OCHRE Item Details</h1>
+     <div id="item-details"></div>
  </div>
  
  <script src="technical_07.js"></script>
  <script>
-     const items = [
-         {
-             uuid: '6f18e3a7-a396-46d9-85cb-92674c24cfc0',
-             title: 'OCHRE Item 1',
-             page: 'technical_07.1.html'
-         },
-         {
-             uuid: '50f7b9a5-329a-49ab-85e2-f8fb4ee6e867',
-             title: 'OCHRE Item 2',
-             page: 'technical_07.2.html'
-         }
-     ];
- 
-     function loadItemsSummary(items) {
-         items.forEach(item => {
-             const url = `https://ochre.lib.uchicago.edu/ochre?uuid=${item.uuid}`;
-             fetch(url)
-                 .then(response => response.text())
-                 .then(xmlString => {
-                     const parser = new DOMParser();
-                     const xml = parser.parseFromString(xmlString, "application/xml");
-                     const itemTitle = xml.querySelector("title")?.textContent || item.title;
-                     const previewImage = xml.querySelector("previewImage")?.getAttribute("src") || null;
-                     let html = `<div class="col-md-6 mb-4">
-                         <div class="card">
-                             <div class="card-body">
-                                 <h5 class="card-title">${itemTitle}</h5>`;
-                     if (previewImage) {
-                         html += `<img src="https://ochre.lib.uchicago.edu${previewImage}" alt="${itemTitle}" class="img-fluid mb-3">`;
-                     }
-                     html += `<a href="${item.page}" class="btn rounded-maroon-btn">View Details</a>
-                             </div>
-                         </div>
-                     </div>`;
-                     document.querySelector("#items-list").innerHTML += html;
-                 })
-                 .catch(error => {
-                     console.error("Error fetching OCHRE data:", error);
-                     document.querySelector("#items-list").innerHTML += `<p>Error loading item details.</p>`;
-                 });
-         });
-     }
- 
-     loadItemsSummary(items);
+     loadOchreData('50f7b9a5-329a-49ab-85e2-f8fb4ee6e867', '#item-details');
  </script>
  </body>
  </html>
