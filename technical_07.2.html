@@ -62,13 +62,16 @@
  
  <h1>Technical Assignment 07 - Item 2 Details</h1>
  <div class="container mt-4">
-     <h1>OCHRE Item Details</h1>
      <div id="item-details"></div>
+     <div id="imageOutput"></div> <!-- Make sure your JS handles this div if needed -->
  </div>
  
  <script src="technical_07.js"></script>
  <script>
-     loadOchreData('50f7b9a5-329a-49ab-85e2-f8fb4ee6e867', '#item-details');
+     document.addEventListener('DOMContentLoaded', function() {
+         loadOchreData('50f7b9a5-329a-49ab-85e2-f8fb4ee6e867', '#item-details');
+     });
  </script>
+
  </body>
  </html>

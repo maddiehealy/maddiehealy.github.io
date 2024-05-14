@@ -62,13 +62,14 @@
  
     <h1>Technical Assignment 07 - Item 1 Details</h1>
     <div class="container mt-4">
-        <h1>OCHRE Item Details</h1>
-        <div id="item-details"></div>
+        <div id="itemDetails"></div>  <!-- Ensure this ID matches your JavaScript references -->
     </div>
-    
+
     <script src="technical_07.js"></script>
     <script>
-        loadOchreData('6f18e3a7-a396-46d9-85cb-92674c24cfc0', '#item-details');
+        document.addEventListener('DOMContentLoaded', function() {
+            loadXML(); // Ensure this function is designed to handle specific UUID for Item 1
+        });
     </script>
-    </body>
- </html>
+</body>
+</html>

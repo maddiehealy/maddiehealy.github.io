@@ -1,73 +1,66 @@
-const OCHRE_BASE_URL = "https://ochre.lib.uchicago.edu/ochre?uuid=";
+document.addEventListener('DOMContentLoaded', function() {
+    const items = [
+        { uuid: '6f18e3a7-a396-46d9-85cb-92674c24cfc0', containerSelector: '#item-details' },
+        { uuid: '50f7b9a5-329a-49ab-85e2-f8fb4ee6e867', containerSelector: '#item-details' }
+    ];
 
-function loadOchreData(uuid, containerSelector) {
-    const url = OCHRE_BASE_URL + uuid;
-    fetch(url)
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.text();
-        })
-        .then(xmlString => {
-            // Handle the initial XML parsing and display
-            return handleXmlResponse(xmlString, containerSelector);
-        })
-        .then(additionalUuid => {
-            // Conditionally fetch additional data if there's another UUID to process
-            if (additionalUuid) {
-                return fetchAdditionalData(additionalUuid, containerSelector);
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching OCHRE data:", error);
-            document.querySelector(containerSelector).innerHTML = `<p>Error loading data. ${error.message}</p>`;
-        });
-}
+    items.forEach(({ uuid, containerSelector }) => {
+        const url = `https://ochre.lib.uchicago.edu/ochre?uuid=${uuid}`;
+        fetch(url)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                return response.text();
+            })
+            .then(xmlData => {
+                const xmlDoc = parseData(xmlData);
+                updateDocumentContent(xmlDoc, containerSelector);
+                updateImageContent(xmlDoc);  // Handles displaying of images if found in the XML
+                loadImage(url);  // Function call to load image added
+            })
+            .catch(error => {
+                console.error('Error loading XML data:', error);
+                document.querySelector(containerSelector).innerHTML = `<p>Error loading item details: ${error.message}</p>`;
+            });
+    });
+});
 
-function handleXmlResponse(xmlString, containerSelector) {
+function parseData(xmlData) {
     const parser = new DOMParser();
-    const xml = parser.parseFromString(xmlString, "application/xml");
-    if (xml.documentElement.nodeName === "parsererror") {
+    const xmlDoc = parser.parseFromString(xmlData, 'application/xml');
+    if (xmlDoc.documentElement.nodeName === "parsererror") {
         throw new Error("Error parsing XML data.");
     }
-
-    const title = xml.querySelector("title")?.textContent || "No Title Available";
-    const previewImage = xml.querySelector("previewImage")?.getAttribute("src");
-    let html = `<h2>${title}</h2>`;
-    if (previewImage) {
-        html += `<img src="${previewImage}" alt="${title}" class="img-fluid mb-4">`;
-    }
-
-    const properties = xml.querySelectorAll("property");
-    if (properties.length > 0) {
-        html += "<h3>Properties:</h3><ul>";
-        properties.forEach(prop => {
-            const fullText = prop.textContent.trim();
-            const splitIndex = fullText.indexOf(':');
-            if (splitIndex !== -1) {
-                const name = fullText.substring(0, splitIndex).trim();
-                const value = fullText.substring(splitIndex + 1).trim();
-                html += `<li><strong>${name}:</strong> ${value}</li>`;
-            } else {
-                html += `<li>${fullText}</li>`;
-            }
-        });
-        html += "</ul>";
-    } else {
-        html += "<p>No properties available.</p>";
-    }
-
-    document.querySelector(containerSelector).innerHTML = html;
-
-    // Optionally return an additional UUID to fetch more data if needed
-    // return "another_uuid";
+    return xmlDoc;
 }
 
-function fetchAdditionalData(uuid, containerSelector) {
-    const url = OCHRE_BASE_URL + uuid;
-    return fetch(url)
-        .then(response => response.text())
-        .then(xmlString => {
-            // Process additional XML data
-            console.log("Additional data loaded");
-        });
+function updateDocumentContent(xmlDoc, containerSelector) {
+    var itemTitle = xmlDoc.querySelector("title") ? xmlDoc.querySelector("title").textContent : "Title Not Found";
+    var itemDescription = xmlDoc.querySelector("description") ? xmlDoc.querySelector("description").textContent : "Description Not Available";
+    var license = xmlDoc.querySelector("license") ? xmlDoc.querySelector("license").textContent : "License Info Not  Not Available";
+    
+    let html = `<h2>${itemTitle}</h2>
+        <p>Description: ${itemDescription}</p>
+        <p>License: ${license}</p>`;
+
+    var container = document.querySelector(containerSelector);
+    if (container) {
+        container.innerHTML = html;
+    } else {
+        console.error("Container not found for selector: " + containerSelector);
+    }
+}
+
+function updateImageContent(xmlDoc) {
+    const previewImage = xmlDoc.querySelector("previewImage") ? xmlDoc.querySelector("previewImage").getAttribute("src") : null;
+    if (previewImage) {
+        const imageContainer = document.getElementById('imageOutput');
+        imageContainer.innerHTML = `<img src="${previewImage}" alt="Preview Image" class="img-fluid">`;
+    }
+}
+
+function loadImage(url){
+    let newIMG = document.createElement("img");
+    newIMG.src = url + "&preview";
+    newIMG.className = "img-fluid";
+    document.getElementById('imageOutput').appendChild(newIMG);
 }
