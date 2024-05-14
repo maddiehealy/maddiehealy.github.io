@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const xmlDoc = parser.parseFromString(xmlData, 'application/xml');
     createHeaders(xmlDoc),
     listProps(xmlDoc);
+    updateImageContent(xmlDoc);
   };
   
   function createHeaders(sourceXML){
@@ -50,3 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
     //populate the cells in the row
     document.getElementById('itemDetails').appendChild(newLI);
   }
+
+  function updateImageContent(xmlDoc) {
+    const previewImage = xmlDoc.querySelector("previewImage");
+    if (previewImage) {
+        const imageSrc = previewImage.getAttribute("src");
+        loadImage(imageSrc);  // Pass the source URL of the image to the loadImage function
+    }
+}
+
+function loadImage(imageSrc) {
+    const imageContainer = document.getElementById('imageOutput');
+    if (imageContainer) {
+        let newIMG = document.createElement("img");
+        newIMG.src = imageSrc;  // Directly use the provided image source
+        newIMG.className = "img-fluid";
+        imageContainer.appendChild(newIMG);
+    }
+}
