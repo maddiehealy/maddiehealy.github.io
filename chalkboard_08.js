@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mbid = getMbidFromUrl();
     if (mbid) {
-        fetchInstrumentDetails(mbid);
+        fetchArtistAlbums(mbid);
     }
 
     document.getElementById('searchButton').addEventListener('click', () => {
-        const instrumentName = document.getElementById('instrumentName').value;
-        searchInstrument(instrumentName);
+        const artistName = document.getElementById('searchInput').value;
+        searchArtist(artistName);
     });
 });
 
@@ -15,67 +15,22 @@ function getMbidFromUrl() {
     return params.get('mbid');
 }
 
-async function searchInstrument(instrumentName) {
-    const searchUrl = `https://musicbrainz.org/ws/2/instrument/?query=${encodeURIComponent(instrumentName)}&fmt=json`;
-    const resultsContainer = document.getElementById('results');
+async function searchArtist(artistName) {
+    const searchUrl = `https://musicbrainz.org/ws/2/artist/?query=artist:${encodeURIComponent(artistName)}&fmt=json`;
+    const resultsContainer = document.getElementById('artistResults');
     resultsContainer.innerHTML = '';
 
     try {
         const response = await fetch(searchUrl);
         const data = await response.json();
-        const instruments = data.instruments;
-
-        if (instruments.length === 0) {
-            resultsContainer.innerHTML = `<p>No results found for "${instrumentName}".</p>`;
-        } else {
-            instruments.forEach(instrument => {
-                const instrumentLink = document.createElement('a');
-                instrumentLink.href = `./musicAPI_instrument.html?mbid=${instrument.id}`;
-                instrumentLink.textContent = instrument.name;
-                instrumentLink.style.display = 'block';
-
-                resultsContainer.appendChild(instrumentLink);
-            });
-        }
-    } catch (error) {
-        console.error('Error fetching instrument details:', error);
-    }
-}
-
-async function fetchInstrumentDetails(mbid) {
-    const detailsUrl = `https://musicbrainz.org/ws/2/instrument/${mbid}?fmt=json`;
-    const instrumentDetailsContainer = document.getElementById('instrumentDetails');
-
-    try {
-        const response = await fetch(detailsUrl);
-        const instrument = await response.json();
-
-        instrumentDetailsContainer.innerHTML = `
-            <h2>${instrument.name}</h2>
-            <p>ID: ${instrument.id}</p>
-            <p>Description: ${instrument.description || 'N/A'}</p>
-        `;
-    } catch (error) {
-        console.error('Error fetching instrument details:', error);
-    }
-}
-
-async function fetchArtistDetails() {
-    const artistInput = document.getElementById('artistInput').value;
-    const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = '';
-
-    try {
-        const response = await fetch(`https://musicbrainz.org/ws/2/artist/?query=artist:${encodeURIComponent(artistInput)}&fmt=json`);
-        const data = await response.json();
         const artists = data.artists;
 
         if (artists.length === 0) {
-            resultsContainer.innerHTML = `<p>No results found for "${artistInput}".</p>`;
+            resultsContainer.innerHTML = `<p>No results found for "${artistName}".</p>`;
         } else {
             artists.forEach(artist => {
                 const artistLink = document.createElement('a');
-                artistLink.href = `./musicAPI_lookupArtist.html?mbid=${artist.id}`;
+                artistLink.href = `./chalkboard_08.html?mbid=${artist.id}`;
                 artistLink.textContent = artist.name;
                 artistLink.style.display = 'block';
 
@@ -84,5 +39,39 @@ async function fetchArtistDetails() {
         }
     } catch (error) {
         console.error('Error fetching artist details:', error);
+    }
+}
+
+async function fetchArtistAlbums(mbid) {
+    const detailsUrl = `https://musicbrainz.org/ws/2/release-group?artist=${mbid}&fmt=json`;
+    const albumTable = document.getElementById('albumTable');
+    const albumList = document.getElementById('albumList');
+    albumList.innerHTML = '';
+
+    try {
+        const response = await fetch(detailsUrl);
+        const data = await response.json();
+        const albums = data['release-groups'];
+
+        if (albums.length === 0) {
+            albumTable.style.display = 'none';
+            albumList.innerHTML = `<tr><td colspan="2">No albums found.</td></tr>`;
+        } else {
+            albumTable.style.display = 'table';
+            albums.forEach(album => {
+                const albumRow = document.createElement('tr');
+                const releaseDate = album['first-release-date'] || 'N/A';
+                const albumName = album.title;
+
+                albumRow.innerHTML = `
+                    <td>${releaseDate}</td>
+                    <td>${albumName}</td>
+                `;
+
+                albumList.appendChild(albumRow);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching album details:', error);
     }
 }

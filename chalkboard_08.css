@@ -1,0 +1,32 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+input {
+    width: 300px;
+}
+
+hr {
+    margin: 50px 0;
+}
+
+#link {
+    margin-top: 100px;
+}
+
+#albumTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#albumTable th, #albumTable td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+#albumTable th {
+    background-color: maroon;
+    color: white;
+}
