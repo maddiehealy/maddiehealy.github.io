@@ -10,13 +10,13 @@ body {
     border-radius: 20px;
     background-color: maroon;
     color: white;
-    padding: 10px 20px; /* Makes the buttons larger */
-    text-decoration: none; /* Removes underline from links */
-    display: inline-block; /* Ensures proper button formatting */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-    border: none; /* Removes any default border */
+    padding: 10px 20px; 
+    text-decoration: none; 
+    display: inline-block; 
+    transition: background-color 0.3s; 
+    border: none;
 }
 
 .rounded-maroon-btn:hover {
-    background-color: darkred; /* Darker shade of maroon on hover */
+    background-color: darkred; 
 }
