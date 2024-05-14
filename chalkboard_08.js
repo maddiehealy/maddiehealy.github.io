@@ -1,60 +1,88 @@
-function searchInstrument() {
-    var instrumentName = document.getElementById('instrumentname').value;
-    var searchUrl =  `https://musicbrainz.org/ws/2/instrument/?query=${encodeURIComponent(instrumentName)}&fmt=json`;
-
-    fetch(searchUrl)
-        .then(response => response.json())
-        .then(data => displaySearchResults(data))
-        .catch(error => console.error('Error:', error));
-}
-
-function displaySearchResults(data) {
-    var resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = '';
-
-    if (data.instruments && data.instruments.length >0) {
-        data.instruments.forEach(instrument => {
-            var instrumentInfo = document.createElement('p');
-            instrumentInfo.innerHTML = `Instrument: ${instrument.name} <br> MBID: ${instrument.id}`;
-            instrumentInfo.style.cursor = 'pointer';
-            instrumentInfo.onclick = function() { fetchInstrumentDetails{instrument.id}; };
-            resultsDiv.appendChild(instrumentInfo);
-        });
-    } else {
-        resultsDiv.innerHTML = "No instruments found";
-    }
-}
-
-document.getElementById('searchButton').addEventListener('click', function() {
-    var mbid = document.getElementById('instrumentName').value;
-    if (mbid.trim()) {
+document.addEventListener('DOMContentLoaded', () => {
+    const mbid = getMbidFromUrl();
+    if (mbid) {
         fetchInstrumentDetails(mbid);
-    } else {
-        alert("Please enter a valid MBID.")
     }
+
+    document.getElementById('searchButton').addEventListener('click', () => {
+        const instrumentName = document.getElementById('instrumentName').value;
+        searchInstrument(instrumentName);
+    });
 });
 
-function fetchInstrumentDetails(mbid) {
-    var detailsUrl = `https://musicbrainz.org/ws/2/instrument/?query=${encodeURIComponent(instrumentName)}&fmt=json`;
-
-    fetch(detailsUrl)
-        .then(response => response.json())
-        .then(data => displayInstrumentDetails(data))
-        .catch(error => console.error('Error:', error));
+function getMbidFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('mbid');
 }
 
-function displayInstrumentDetails(instrument) {
-    var detailsDiv = document.getElementById('instrumentDetails');
-    detailsDiv.innerHTML = '';
+async function searchInstrument(instrumentName) {
+    const searchUrl = `https://musicbrainz.org/ws/2/instrument/?query=${encodeURIComponent(instrumentName)}&fmt=json`;
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = '';
 
-    if (instrument) {
-        var instrumentInfo = document.createElement('p');
-        instrumentInfo.innerHTML = `Name: ${instrument.name}<br>` +
-                                   `MBID: ${instrument.id}<br>` +
-                                   `Description: ${instrument.description || "No description available"}<br>`
-                                   `Disambiguation: ${instrument.disambiguation || "None"}`;
-        detailsDiv.appendChild(instrumentInfo);
-    } else {
-        detailsDiv.innerHTML = "No instrument found with the given MBID";
+    try {
+        const response = await fetch(searchUrl);
+        const data = await response.json();
+        const instruments = data.instruments;
+
+        if (instruments.length === 0) {
+            resultsContainer.innerHTML = `<p>No results found for "${instrumentName}".</p>`;
+        } else {
+            instruments.forEach(instrument => {
+                const instrumentLink = document.createElement('a');
+                instrumentLink.href = `./musicAPI_instrument.html?mbid=${instrument.id}`;
+                instrumentLink.textContent = instrument.name;
+                instrumentLink.style.display = 'block';
+
+                resultsContainer.appendChild(instrumentLink);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching instrument details:', error);
+    }
+}
+
+async function fetchInstrumentDetails(mbid) {
+    const detailsUrl = `https://musicbrainz.org/ws/2/instrument/${mbid}?fmt=json`;
+    const instrumentDetailsContainer = document.getElementById('instrumentDetails');
+
+    try {
+        const response = await fetch(detailsUrl);
+        const instrument = await response.json();
+
+        instrumentDetailsContainer.innerHTML = `
+            <h2>${instrument.name}</h2>
+            <p>ID: ${instrument.id}</p>
+            <p>Description: ${instrument.description || 'N/A'}</p>
+        `;
+    } catch (error) {
+        console.error('Error fetching instrument details:', error);
+    }
+}
+
+async function fetchArtistDetails() {
+    const artistInput = document.getElementById('artistInput').value;
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = '';
+
+    try {
+        const response = await fetch(`https://musicbrainz.org/ws/2/artist/?query=artist:${encodeURIComponent(artistInput)}&fmt=json`);
+        const data = await response.json();
+        const artists = data.artists;
+
+        if (artists.length === 0) {
+            resultsContainer.innerHTML = `<p>No results found for "${artistInput}".</p>`;
+        } else {
+            artists.forEach(artist => {
+                const artistLink = document.createElement('a');
+                artistLink.href = `./musicAPI_lookupArtist.html?mbid=${artist.id}`;
+                artistLink.textContent = artist.name;
+                artistLink.style.display = 'block';
+
+                resultsContainer.appendChild(artistLink);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching artist details:', error);
     }
 }
