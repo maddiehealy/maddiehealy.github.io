@@ -30,23 +30,31 @@ async function searchArtist(artistName) {
     try {
         const response = await fetch(searchUrl);
         const data = await response.json();
-        const artists = data.artists;
-
-        if (artists.length === 0) {
-            resultsContainer.innerHTML = `<p>No results found for "${artistName}".</p>`;
-        } else {
-            artists.forEach(artist => {
-                const artistLink = document.createElement('a');
-                artistLink.href = `./chalkboard_08.html?mbid=${artist.id}`;
-                artistLink.textContent = artist.name;
-                artistLink.style.display = 'block';
-
-                resultsContainer.appendChild(artistLink);
-            });
-        }
+        displayResults(data);
     } catch (error) {
         console.error('Error fetching artist details:', error);
         resultsContainer.innerHTML = `<p>Error fetching artist details. Please try again later.</p>`;
+    }
+}
+
+function displayResults(data) {
+    const resultsContainer = document.getElementById('artistResults');
+    if (data.artists && data.artists.length > 0) {
+        const artists = data.artists;
+        const resultList = document.createElement('ul');
+
+        artists.forEach(artist => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.textContent = artist.name;
+            link.href = `./chalkboard_08.html?mbid=${artist.id}`;
+            listItem.appendChild(link);
+            resultList.appendChild(listItem);
+        });
+
+        resultsContainer.appendChild(resultList);
+    } else {
+        resultsContainer.textContent = 'No artists found.';
     }
 }
 
@@ -59,28 +67,33 @@ async function fetchArtistAlbums(mbid) {
     try {
         const response = await fetch(detailsUrl);
         const data = await response.json();
-        const albums = data['release-groups'];
-
-        if (albums.length === 0) {
-            albumTable.style.display = 'none';
-            albumList.innerHTML = `<tr><td colspan="2">No albums found.</td></tr>`;
-        } else {
-            albumTable.style.display = 'table';
-            albums.forEach(album => {
-                const albumRow = document.createElement('tr');
-                const releaseDate = album['first-release-date'] || 'N/A';
-                const albumName = album.title;
-
-                albumRow.innerHTML = `
-                    <td>${releaseDate}</td>
-                    <td>${albumName}</td>
-                `;
-
-                albumList.appendChild(albumRow);
-            });
-        }
+        displayAlbums(data['release-groups']);
     } catch (error) {
         console.error('Error fetching album details:', error);
         albumList.innerHTML = `<tr><td colspan="2">Error fetching album details. Please try again later.</td></tr>`;
+    }
+}
+
+function displayAlbums(albums) {
+    const albumTable = document.getElementById('albumTable');
+    const albumList = document.getElementById('albumList');
+    albumList.innerHTML = '';
+
+    if (albums && albums.length > 0) {
+        albumTable.style.display = 'table';
+        albums.forEach(album => {
+            const albumRow = document.createElement('tr');
+            const releaseDate = album['first-release-date'] || 'N/A';
+            const albumName = album.title;
+
+            albumRow.innerHTML = `
+                <td>${releaseDate}</td>
+                <td>${albumName}</td>
+            `;
+
+            albumList.appendChild(albumRow);
+        });
+    } else {
+        albumTable.style.display = 'none';
     }
 }
