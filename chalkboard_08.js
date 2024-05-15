@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const artistName = document.getElementById('searchInput').value;
         searchArtist(artistName);
     });
+
+    document.getElementById('searchInput').addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const artistName = event.target.value;
+            searchArtist(artistName);
+        }
+    });
 });
 
 function getMbidFromUrl() {
@@ -39,6 +46,7 @@ async function searchArtist(artistName) {
         }
     } catch (error) {
         console.error('Error fetching artist details:', error);
+        resultsContainer.innerHTML = `<p>Error fetching artist details. Please try again later.</p>`;
     }
 }
 
@@ -73,5 +81,6 @@ async function fetchArtistAlbums(mbid) {
         }
     } catch (error) {
         console.error('Error fetching album details:', error);
+        albumList.innerHTML = `<tr><td colspan="2">Error fetching album details. Please try again later.</td></tr>`;
     }
 }
