@@ -1,12 +1,22 @@
 .navbar {
     background-color: maroon;
     padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem; /* Increased bottom padding */
+    width: 100%; /* Ensure the navbar spans the full width */
+    position: fixed; /* Fix it to the top of the viewport */
+    top: 0; /* Align it to the top */
+    left: 0; /* Align it to the left */
+    z-index: 1000; /* Ensure it stays on top of other content */
 }
 
 .navbar .container {
     padding: 0;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Space out items within the container */
+    align-items: center;
+    width: 100%;
+    max-width: 100%; /* Ensure it spans the full width */
 }
 
 .navbar, .navbar * {

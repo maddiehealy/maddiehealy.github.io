@@ -20,7 +20,7 @@ body {
     padding: 20px;
     height: 100vh;
     overflow: hidden;
-}
+    padding-top: 70px;
 
 .console-text {
     margin: 0;

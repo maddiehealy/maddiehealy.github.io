@@ -3,6 +3,7 @@
 /* Apply Jost font to all text within body */
 body {
     font-family: 'Jost', sans-serif;
+    padding-top: 40px;
 }
 
 /* General styles for .main-content area */
