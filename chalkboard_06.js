@@ -2,10 +2,11 @@ function capitalize(text) {
     return text.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 }
 
-function lastItem(fruits, outputId) {
-    const originalFruits = fruits.join(', ');
-    fruits.sort();
-    const lastAlphabetical = fruits[fruits.length - 1];
+function lastItem(fruitsObj, outputId) {
+    const fruitsArray = Object.values(fruitsObj);
+    const originalFruits = fruitsArray.join(', ');
+    fruitsArray.sort();
+    const lastAlphabetical = fruitsArray[fruitsArray.length - 1];
     const outputDiv = document.getElementById(outputId);
     outputDiv.innerHTML = `The original array was ${originalFruits} and I sorted it alphabetically. The last item of the sorted array was: ${lastAlphabetical}`;
     toggleVisibility(outputId);
@@ -19,27 +20,26 @@ function collectCategoriesAndItems() {
         return;
     }
 
-    let categories = [];
-    let allItems = [];
+    let categories = {};
+    let items = {};
     let itemsWithCategories = [];
 
     for (let i = 0; i < categoryCount; i++) {
         const category = prompt(`Enter category ${i + 1} of ${categoryCount}:`);
         if (category) {
-            categories.push(capitalize(category));
+            categories[i] = capitalize(category);
         }
     }
 
-    categories.forEach(category => {
+    Object.values(categories).forEach((category, index) => {
         const item = prompt(`Enter an item for the category '${category}':`);
         if (item) {
-            let formattedItem = `${capitalize(item)} (${category})`;
-            allItems.push(capitalize(item));
-            itemsWithCategories.push(formattedItem);
+            items[index] = `${capitalize(item)} (${category})`;
+            itemsWithCategories.push(items[index]);
         }
     });
 
-    allItems.sort();
+    const allItems = Object.values(items).map(item => item.split(' ')[0]).sort();
 
     const outputDiv = document.getElementById('categoryItemsOutput');
     outputDiv.innerHTML = `<strong>Original Submissions:</strong> ${itemsWithCategories.join(', ')}

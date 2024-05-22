@@ -13,7 +13,7 @@
 </head>
 <body>
     <!--Nav Bar-->
-    <div id="nav-placeholder"></div> 
+    <div id="nav-placeholder"></div>
     <!--End Nav Bar-->
 
     <!--Footer-->
@@ -27,9 +27,9 @@
         <h2 class="text-center">Sorting Fruit</h2>
         <p>For the following sets of JS functions, we work on sorting an assortment of fruits alphabetically, ultimately delivering whatever fruit comes last in the alphabet. Note that each part builds upon the previous one.</p>
         <h3>Part 1: Initial Sorting</h3>
-        <p>In this first section, we want to determine which inputted fruit comes last in the alphabet. Our fruit array currently lists: 'Watermelon', 'Apple', 'Orange', and 'Kiwi'.</p>
+        <p>In this first section, we want to determine which inputted fruit comes last in the alphabet. Our fruit object currently lists: 'Watermelon', 'Apple', 'Orange', and 'Kiwi'.</p>
         <p><em>Can our function output the last alphabetical fruit?</em></p>
-        <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi'], 'output1')">
+        <button class="btn btn-primary" onclick="lastItem({0: 'Watermelon', 1: 'Apple', 2: 'Orange', 3: 'Kiwi'}, 'output1')">
             Results
         </button>
         <div id="output1" class="mt-3"></div>
@@ -39,7 +39,7 @@
         <h3>Part 2: Testing Success by Adding More</h3>
         <p>Now that we have experimented alphabetizing the 4 given fruits above, let's test this function further. Let's add "Banana", "Blueberries", "Mango", and "Peach" into the fruit salad we have already made.</p>
         <p><em>If we add in more fruits, is the sorting still successful?</em></p>
-        <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi', 'Blueberries', 'Mango', 'Peach'], 'output2')">
+        <button class="btn btn-primary" onclick="lastItem({0: 'Watermelon', 1: 'Apple', 2: 'Orange', 3: 'Kiwi', 4: 'Banana', 5: 'Blueberries', 6: 'Mango', 7: 'Peach'}, 'output2')">
             Results
         </button>
         <div id="output2" class="mt-3"></div>
@@ -49,13 +49,12 @@
         <h3>Part 3: Testing with fruits later in the alphabet</h3>
         <p>This next function sorts: 'Watermelon', 'Apple', 'Orange', 'Kiwi', 'Blueberries', 'Mango', 'Peach', and 'Yuzu' alphabetically.</p>
         <p><em>What about if we add a fruit that starts with a letter that comes after the W in "Watermelon"? Can our sorting function handle that?</em></p>
-        <button class="btn btn-primary" onclick="lastItem(['Watermelon', 'Apple', 'Orange', 'Kiwi', 'Blueberries', 'Mango', 'Peach', 'Yuzu'], 'output3')">
+        <button class="btn btn-primary" onclick="lastItem({0: 'Watermelon', 1: 'Apple', 2: 'Orange', 3: 'Kiwi', 4: 'Blueberries', 5: 'Mango', 6: 'Peach', 7: 'Yuzu'}, 'output3')">
             Results
         </button>
         <div id="output3" class="mt-3"></div>
     </div>
 </div>
-
 
 <div class="content-box">
     <div class="container mt-4">
