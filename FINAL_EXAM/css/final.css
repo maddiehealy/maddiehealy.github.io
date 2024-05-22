@@ -1,0 +1,80 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif; /* Sets the font family for the entire page */
+    background-color: #f8f9fa; /* Applies a light gray background color */
+    margin: 0; /* Removes default margin */
+    padding: 60px 20px 20px 20px; /* Adds padding to create space for the h2 elements */
+}
+
+h1 {
+    text-align: center; /* Centers the heading text */
+    margin-top: 20px; /* Adds top margin to the heading */
+    color: maroon; /* Sets header text color */
+}
+
+/* Styles for h2 to be italic and positioned in the top right corner */
+h2 {
+    font-style: italic; /* Makes the text italic */
+    position: absolute; /* Positions the element absolutely */
+    top: 10px; /* Positions the element 10px from the top */
+    right: 20px; /* Positions the element 20px from the right */
+    color: gray; /* Sets the text color to gray for better contrast */
+    font-size: 0.8rem; /* Sets a smaller font size */
+}
+
+h2:nth-of-type(2) {
+    top: 25px; /* Positions the second h2 40px from the top */
+}
+
+/* Styles for the container */
+.container {
+    margin-top: 20px; /* Adds top margin to the container */
+    margin-left: 20px; /* Adds left margin to the container */
+    margin-right: 20px; /* Adds right margin to the container */
+}
+
+/* Styles for the table */
+.table {
+    margin-top: 20px; /* Adds top margin to the table */
+}
+
+.table thead th {
+    background-color: maroon; /* Sets the background color of table headers to maroon */
+    color: white; /* Sets the text color of table headers to white */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping for table rows */
+}
+
+/* Styles for the list */
+#output {
+    list-style-type: none; /* Removes default list styling (bullets) */
+    padding: 0; /* Removes default padding */
+}
+
+#output li {
+    background-color: #e9ecef; /* Sets a light gray background color for list items */
+    margin: 5px 0; /* Adds vertical margin between list items */
+    padding: 10px; /* Adds padding inside each list item */
+    border-radius: 5px; /* Rounds the corners of each list item */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Decreases the font size of the heading on small screens */
+    }
+
+    .table {
+        font-size: 0.9rem; /* Decreases the font size of the table content on small screens */
+    }
+
+    h2 {
+        font-size: 0.7rem; /* Further decreases the font size of h2 on small screens */
+    }
+
+    h2:nth-of-type(2) {
+        top: 0px; /* Adjusts the position of the second h2 on small screens */
+    }
+}

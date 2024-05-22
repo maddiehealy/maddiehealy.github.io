@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="footer.css">
 </head>
-<body>
+<body id="item1Page"> <!-- Added this to identify item 1 page -->
      <!--Nav Bar-->
      <div id="nav-placeholder"></div> 
      <!--End Nav Bar-->
@@ -27,11 +27,12 @@
         <p id="itemDescription"></p>
         <p id="license"></p>
         <div id="itemLists"></div>
+        <div id="imageOutput"></div> <!-- Added this for image output -->
 
     <script src="technical_07.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            loadXML(); // Ensure this function is designed to handle specific UUID for Item 1
+            loadXML('6f18e3a7-a396-46d9-85cb-92674c24cfc0'); // Ensure this function is designed to handle specific UUID for Item 1
         });
     </script>
 

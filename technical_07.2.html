@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="footer.css">
 </head>
-<body>
+<body id="item2Page"> <!-- Added this to identify item 2 page -->
  
      <!--Nav Bar-->
      <div id="nav-placeholder"></div> 
@@ -21,20 +21,22 @@
      <div id="footer-placeholder"></div>
      <!--End Footer-->
 
- 
- <h1>Technical Assignment 07 - Item 2 Details</h1>
- <div class="container mt-4">
-    <h1 id="projectTitle"></h1>
-    <h2 id="itemTitle"></h2>
-    <p id="itemDescription"></p>
-    <p id="license"></p>
-    <div id="itemLists"></div> 
-    <div id="imageOutput"></div>
- 
+ <div>
+    <h1>Technical Assignment 07 - Item 2 Details</h1>
+    <div class="container mt-4">
+        <h1 id="projectTitle"></h1>
+        <h2 id="itemTitle"></h2>
+        <p id="itemDescription"></p>
+        <p id="license"></p>
+        <div id="itemLists"></div>
+        <div id="imageOutput"></div> <!-- Added this for image output -->
+    </div>
+ </div>
+
  <script src="technical_07.js"></script>
  <script>
      document.addEventListener('DOMContentLoaded', function() {
-         loadOchreData('50f7b9a5-329a-49ab-85e2-f8fb4ee6e867', '#item-details');
+         loadXML('50f7b9a5-329a-49ab-85e2-f8fb4ee6e867'); // Ensure this function is designed to handle specific UUID for Item 2
      });
  </script>
 
@@ -42,4 +44,4 @@
 <script src="footer.js"></script>
 
  </body>
- </html>
+</html>
